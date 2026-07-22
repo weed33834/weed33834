@@ -5,36 +5,125 @@ on:
     # UTC 00:00 = 北京时间 08:00
     - cron: "0 0 * * *"
   workflow_dispatch:
+    # 手动触发,可选是否同步 GitCode
+    inputs:
+      sync_gitcode:
+        description: "同步推送到 GitCode badhope/badhope"
+        type: boolean
+        default: true
 
 permissions:
   contents: write
 
+concurrency:
+  group: daily-refresh
+  cancel-in-progress: false
+
 jobs:
   update:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
-      - name: Regenerate daily SVGs (quote + on-this-day)
-        run: python3 scripts/gen_assets.py
-      - name: Commit if changed
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Configure git
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Regenerate daily SVGs
+        id: gen
+        run: |
+          echo "::group::生成 SVG 资产"
+          python3 scripts/gen_assets.py
+          GEN_EXIT=$?
+          echo "gen_exit=$GEN_EXIT" >> $GITHUB_OUTPUT
+          echo "::endgroup::"
+          # 即使全部回退(退出码 1),也继续流程,因为 SVG 已生成
+          exit 0
+
+      - name: Show generated files
+        run: |
+          echo "::group::生成的文件"
+          ls -lh assets/
+          echo ""
+          echo "=== quote.svg 内容预览 ==="
+          head -c 300 assets/quote.svg
+          echo ""
+          echo ""
+          echo "=== onthisday.svg 内容预览 ==="
+          head -c 300 assets/onthisday.svg
+          echo "::endgroup::"
+
+      - name: Commit to GitHub
+        id: commit
+        run: |
           git add assets/quote.svg assets/onthisday.svg
           if git diff --cached --quiet; then
-            echo "no changes"
+            echo "no_changes=true" >> $GITHUB_OUTPUT
+            echo "无变更,跳过 commit"
           else
-            git commit -m "chore: 每日刷新一言 + 历史上的今天"
-            git push
-          fi
-      - name: Sync to GitCode
-        env:
-          GC_TOKEN: ${{ secrets.GITCODE_TOKEN }}
-        run: |
-          if [ -z "$GC_TOKEN" ]; then
-            echo "GITCODE_TOKEN secret not set, skip GitCode sync"
-            exit 0
-          fi
-          git remote add gitcode "https://badhope:${GC_TOKEN}@gitcode.com/badhope/badhope.git" 2>/dev/null || true
-          git push --force gitcode main
+            echo "no_changes=false" >> $GITHUB_OUTPUT
+            git commit -m "chore: 每日刷新一言 + 历史上的今天 [skip ci]
 
+Generated at $(date -u '+%Y-%m-%d %H:%M:%S UTC')"
+            git push
+            echo "已 commit 并 push 到 GitHub"
+          fi
+
+      - name: Sync to GitCode
+        if: |
+          github.event.inputs.sync_gitcode != 'false' &&
+          env.GITCODE_TOKEN != ''
+        env:
+          GITCODE_TOKEN: ${{ secrets.GITCODE_TOKEN }}
+        run: |
+          echo "::group::同步到 GitCode badhope/badhope"
+          git remote add gitcode "https://badhope:${GITCODE_TOKEN}@gitcode.com/badhope/badhope.git" 2>/dev/null || true
+          # force push 保证两端完全一致(Action 自己的 commit 不会冲突)
+          git push --force gitcode main 2>&1
+          echo "::endgroup::"
+
+      - name: Health check
+        if: always()
+        run: |
+          echo "::group::健康检查"
+          echo "=== GitHub 远端最新 commit ==="
+          git log --oneline -3
+          echo ""
+          echo "=== 本地 assets 文件状态 ==="
+          for f in banner.svg quote.svg onthisday.svg divider.svg; do
+            if [ -f "assets/$f" ]; then
+              SIZE=$(wc -c < "assets/$f")
+              echo "  ✓ assets/$f (${SIZE}B)"
+            else
+              echo "  ✗ assets/$f 缺失!"
+            fi
+          done
+          echo ""
+          echo "=== SVG 有效性检查(含 </svg> 闭合标签) ==="
+          for f in assets/*.svg; do
+            if grep -q "</svg>" "$f"; then
+              echo "  ✓ $f 闭合正常"
+            else
+              echo "  ✗ $f 未闭合!"
+            fi
+          done
+          echo "::endgroup::"
+
+      - name: Summary
+        if: always()
+        run: |
+          echo "## 每日刷新总结" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "- 生成退出码: ${{ steps.gen.outputs.gen_exit }} (0=在线源成功, 1=全部回退)" >> $GITHUB_STEP_SUMMARY
+          echo "- GitHub commit: ${{ steps.commit.outputs.no_changes == 'true' && '无变更' || '已推送' }}" >> $GITHUB_STEP_SUMMARY
+          echo "- 时间: $(date -u '+%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_STEP_SUMMARY
