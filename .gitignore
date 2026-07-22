@@ -1,0 +1,13 @@
+# 本地工作产物
+.trae/
+.quote-day
+
+# 系统
+*.log
+.DS_Store
+Thumbs.db
+
+# 编辑器
+.vscode/
+.idea/
+*.swp
