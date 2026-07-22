@@ -1,15 +1,24 @@
 #!/usr/bin/env python3
-"""生成 badhope/weed33834 profile README 的 SVG 资源。
+"""生成 badhope/weed33834 profile README 的 SVG 资产。
 
 - banner.svg     顶部星空横幅(静态)
 - quote.svg      每日一言(在线 hitokoto.cn,失败回退本地库)
 - onthisday.svg  历史上的今天(在线 Wikipedia REST API,失败回退占位)
 - divider.svg    分割线装饰(静态)
 
-GitHub Action 每天 UTC 00:00 自动跑一次,刷新 quote.svg / onthisday.svg。
+GitHub Action 每天 UTC 00:00 自动跑一次,刷新 quote.svg / onthisday.svg,
+然后 commit 到 main 并同步推送到 GitCode badhope/badhope。
+
+健壮性策略:
+1. 每个 API 调用带 timeout + 重试(3 次,指数退避)
+2. 多数据源容错:hitokoto 失败用本地 25 条库;Wikipedia 失败用中文维基;都失败用占位
+3. XML 转义防 SVG 渲染崩溃
+4. 失败不抛异常,总是产出 SVG(保证 README 永远有内容)
+5. 退出码:0=至少一个在线源成功,1=全部回退(供 Action 判断)
 """
 import json
 import random
+import time
 import urllib.request
 import urllib.error
 from datetime import datetime, timezone
@@ -50,35 +59,63 @@ FALLBACK_QUOTES = [
     ("程序的浪漫,在于它精确地执行你的想象。", "佚名"),
 ]
 
+
 # ---------- HTTP 工具 ----------
-def http_get_json(url, timeout=12):
-    req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "application/json"})
-    with urllib.request.urlopen(req, timeout=timeout) as r:
-        return json.loads(r.read().decode("utf-8"))
+def http_get_json(url, timeout=12, retries=3, backoff=1.5):
+    """带重试和指数退避的 HTTP GET JSON。"""
+    last_err = None
+    for attempt in range(retries):
+        try:
+            req = urllib.request.Request(
+                url,
+                headers={"User-Agent": UA, "Accept": "application/json"},
+            )
+            with urllib.request.urlopen(req, timeout=timeout) as r:
+                return json.loads(r.read().decode("utf-8"))
+        except Exception as e:
+            last_err = e
+            if attempt < retries - 1:
+                wait = backoff ** (attempt + 1)
+                print(f"  [retry {attempt+1}/{retries}] {type(e).__name__}: {e} -> wait {wait:.1f}s")
+                time.sleep(wait)
+    raise last_err
 
 
 def escape_xml(s):
     """转义 XML 特殊字符,防止 SVG 渲染炸掉。"""
-    return (s or "").replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace('"', "&quot;")
+    if not s:
+        return ""
+    return (
+        s.replace("&", "&amp;")
+        .replace("<", "&lt;")
+        .replace(">", "&gt;")
+        .replace('"', "&quot;")
+        .replace("\n", " ")
+        .replace("\r", " ")
+    )
 
 
 # ---------- 一言 ----------
 def fetch_quote():
-    """在线拉取 hitokoto.cn 一言(诗词+哲学),失败按日确定性回退到本地库。"""
+    """在线拉取 hitokoto.cn 一言(诗词+哲学),失败按日确定性回退到本地库。
+
+    返回 (text, author, source)。
+    """
     try:
-        d = http_get_json("https://v1.hitokoto.cn/?c=i&c=k&encode=json", timeout=10)
+        d = http_get_json("https://v1.hitokoto.cn/?c=i&c=k&encode=json", timeout=10, retries=3)
         text = (d.get("hitokoto") or "").strip()
         if not text:
             raise ValueError("empty hitokoto")
         author = d.get("from_who") or d.get("from") or "佚名"
         source = d.get("from") or ""
-        # 若作者与出处一致,只保留一个
-        if source and author != source:
-            author = f"{author}·《{source}》" if author else f"《{source}》"
-        elif source and not author:
+        # 若作者与出处一致,只保留一个;否则组合
+        if source and author != source and author != "佚名":
+            author = f"{author}·《{source}》"
+        elif source and (author == "佚名" or not author):
             author = f"《{source}》"
         return text, author or "佚名", "hitokoto.cn"
     except Exception as e:
+        print(f"  [quote] hitokoto 失败: {type(e).__name__}: {e} -> 用本地库")
         today = datetime.now(timezone.utc).timetuple().tm_yday
         q = FALLBACK_QUOTES[today % len(FALLBACK_QUOTES)]
         return q[0], q[1], f"local-fallback({type(e).__name__})"
@@ -86,29 +123,54 @@ def fetch_quote():
 
 # ---------- 历史上的今天 ----------
 def fetch_on_this_day():
-    """在线拉取 Wikipedia On This Day events,挑 3 条最古老的。失败回退空列表。"""
+    """在线拉取 Wikipedia On This Day events,挑 3 条最古老的。
+
+    先试英文维基,失败试中文维基,都失败返回空列表 + 占位。
+    返回 (events, source)。events: list of (year, text)。
+    """
     now = datetime.now(timezone.utc)
     mm, dd = f"{now.month:02d}", f"{now.day:02d}"
-    url = f"https://en.wikipedia.org/api/rest_v1/feed/onthisday/events/{mm}/{dd}"
-    try:
-        d = http_get_json(url, timeout=15)
-        events = d.get("events", [])
-        if not events:
-            return [], "wikipedia-empty"
-        # 按年份升序,取最早 3 条(更有"历史厚度")
-        events.sort(key=lambda e: e.get("year", 9999))
-        out = []
-        for e in events[:3]:
-            year = e.get("year")
-            text = (e.get("text") or "").strip()
-            # Wikipedia text 偶尔很长,截到 140 字符
-            if len(text) > 140:
-                text = text[:137] + "..."
-            if year and text:
-                out.append((year, text))
-        return out, "wikipedia"
-    except Exception as e:
-        return [], f"wikipedia-fail({type(e).__name__})"
+
+    # 数据源列表:英文维基优先(事件更全),中文维基备选
+    sources = [
+        (
+            f"https://en.wikipedia.org/api/rest_v1/feed/onthisday/events/{mm}/{dd}",
+            "wikipedia-en",
+            "en",
+        ),
+        (
+            f"https://zh.wikipedia.org/api/rest_v1/feed/onthisday/events/{mm}/{dd}",
+            "wikipedia-zh",
+            "zh",
+        ),
+    ]
+
+    for url, label, lang in sources:
+        try:
+            d = http_get_json(url, timeout=15, retries=2)
+            events = d.get("events", [])
+            if not events:
+                print(f"  [onthisday] {label} 返回空事件列表")
+                continue
+            # 按年份升序,取最早 3 条(更有"历史厚度")
+            events.sort(key=lambda e: e.get("year", 9999))
+            out = []
+            for e in events[:3]:
+                year = e.get("year")
+                text = (e.get("text") or "").strip()
+                # 截断过长文本(英文维基偶尔有长段落)
+                if len(text) > 120:
+                    text = text[:117] + "..."
+                if year and text:
+                    out.append((year, text))
+            if out:
+                return out, label
+            print(f"  [onthisday] {label} 解析后无有效事件")
+        except Exception as e:
+            print(f"  [onthisday] {label} 失败: {type(e).__name__}: {e}")
+            continue
+
+    return [], "all-sources-failed"
 
 
 # ---------- 星空 SVG 工具 ----------
@@ -125,7 +187,9 @@ def rand_stars(w, h, count, rng, min_r=0.3, max_r=1.5, min_o=0.25, max_o=1.0, sp
                 f'<path d="M{x-r*3.5:.1f},{y:.1f} L{x+r*3.5:.1f},{y:.1f} M{x:.1f},{y-r*3.5:.1f} L{x:.1f},{y+r*3.5:.1f}" stroke="#F5E6C8" stroke-width="0.35" opacity="0.6"/></g>'
             )
         else:
-            out.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="{r:.2f}" fill="#F5E6C8" opacity="{o:.2f}"/>')
+            out.append(
+                f'<circle cx="{x:.1f}" cy="{y:.1f}" r="{r:.2f}" fill="#F5E6C8" opacity="{o:.2f}"/>'
+            )
     return "\n  ".join(out)
 
 
@@ -138,7 +202,9 @@ def galaxy_band(w, h, rng, count=60):
         if 0 <= y <= h:
             r = rng.uniform(0.3, 1.1)
             o = rng.uniform(0.3, 0.85)
-            out.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="{r:.2f}" fill="#F5E6C8" opacity="{o:.2f}"/>')
+            out.append(
+                f'<circle cx="{x:.1f}" cy="{y:.1f}" r="{r:.2f}" fill="#F5E6C8" opacity="{o:.2f}"/>'
+            )
     return "\n  ".join(out)
 
 
@@ -147,7 +213,11 @@ def gen_banner():
     rng = random.Random(42)
     W, H = 1200, 320
     nebula = ""
-    for cx, cy, r, col, op in [(900, 80, 220, "#C9A86A", 0.10), (250, 260, 180, "#3a4a8c", 0.18), (1050, 250, 160, "#8c6a3a", 0.08)]:
+    for cx, cy, r, col, op in [
+        (900, 80, 220, "#C9A86A", 0.10),
+        (250, 260, 180, "#3a4a8c", 0.18),
+        (1050, 250, 160, "#8c6a3a", 0.08),
+    ]:
         nebula += f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="{col}" opacity="{op}"/>'
     return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="100%" height="auto" preserveAspectRatio="xMidYMid slice">
   <defs>
@@ -245,7 +315,8 @@ def gen_divider():
     rng = random.Random(7)
     stars = "".join(
         f'<circle cx="{x:.1f}" cy="10" r="{rng.uniform(0.4,1.2):.2f}" fill="#C9A86A" opacity="{rng.uniform(0.3,0.9):.2f}"/>'
-        for x in [rng.uniform(20, 170) for _ in range(8)] + [rng.uniform(230, 380) for _ in range(8)]
+        for x in [rng.uniform(20, 170) for _ in range(8)]
+        + [rng.uniform(230, 380) for _ in range(8)]
     )
     return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 20" width="240" height="12">
   <line x1="20" y1="10" x2="170" y2="10" stroke="#C9A86A" stroke-width="0.4" stroke-opacity="0.5"/>
@@ -257,25 +328,50 @@ def gen_divider():
 
 
 def main():
+    print("=" * 60)
+    print("开始生成 profile SVG 资产")
+    print(f"时间: {datetime.now(timezone.utc).isoformat()}")
+    print("=" * 60)
+
     # banner / divider 静态,但每次都重新写一遍以保证一致性
+    print("\n[1/4] 生成 banner.svg(静态)...")
     (ASSETS / "banner.svg").write_text(gen_banner(), encoding="utf-8")
+    print("  OK")
+
+    print("\n[2/4] 生成 divider.svg(静态)...")
     (ASSETS / "divider.svg").write_text(gen_divider(), encoding="utf-8")
+    print("  OK")
 
     # 一言
+    print("\n[3/4] 生成 quote.svg(在线 hitokoto.cn)...")
     q_text, q_author, q_source = fetch_quote()
     (ASSETS / "quote.svg").write_text(gen_quote(q_text, q_author, q_source), encoding="utf-8")
+    print(f"  source={q_source}")
+    print(f"  text: {q_text}")
+    print(f"  author: {q_author}")
 
     # 历史上的今天
+    print("\n[4/4] 生成 onthisday.svg(在线 Wikipedia)...")
     now = datetime.now(timezone.utc)
     mm, dd = f"{now.month:02d}", f"{now.day:02d}"
     events, ot_source = fetch_on_this_day()
     (ASSETS / "onthisday.svg").write_text(gen_onthisday(events, ot_source, mm, dd), encoding="utf-8")
-
-    print(f"[quote] source={q_source}: {q_text} — {q_author}")
-    print(f"[onthisday] source={ot_source}: {len(events)} events on {mm}/{dd}")
+    print(f"  source={ot_source}: {len(events)} events on {mm}/{dd}")
     for y, t in events:
-        print(f"  {y}: {t[:70]}")
+        print(f"    {y}: {t[:70]}")
+
+    # 退出码:0=至少一个在线源成功,1=全部回退
+    all_fallback = q_source.startswith("local-fallback") and ot_source == "all-sources-failed"
+    print("\n" + "=" * 60)
+    if all_fallback:
+        print("⚠ 全部数据源失败,使用回退内容。退出码 1。")
+        print("=" * 60)
+        return 1
+    else:
+        print("✓ 至少一个在线数据源成功。退出码 0。")
+        print("=" * 60)
+        return 0
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())
