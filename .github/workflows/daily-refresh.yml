@@ -47,7 +47,9 @@ jobs:
             echo "no changes"
           else
             git commit -m "chore: 每日刷新一言 + 历史上的今天 [skip ci]"
-            git push
+            # 先 rebase 远端最新(防止 push 被拒),再 push
+            git pull --rebase origin main || git rebase --abort
+            git push || { git fetch origin && git rebase origin/main && git push; }
           fi
 
       - name: Sync to GitCode
