@@ -1,14 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 130" width="100%" height="auto">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 291.2" width="100%" height="auto">
   <defs>
     <linearGradient id="obg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#0B1026"/>
       <stop offset="1" stop-color="#131a3f"/>
     </linearGradient>
   </defs>
-  <rect width="820" height="130" fill="url(#obg)" rx="6"/>
-  <rect x="6" y="6" width="808" height="118" fill="none" stroke="#C9A86A" stroke-width="0.6" stroke-opacity="0.5" rx="4"/>
+  <rect width="820" height="291.2" fill="url(#obg)" rx="6"/>
+  <rect x="6" y="6" width="808" height="279.2" fill="none" stroke="#C9A86A" stroke-width="0.6" stroke-opacity="0.5" rx="4"/>
   <text x="410" y="40" text-anchor="middle" font-family="Georgia, 'Noto Serif SC', serif" font-size="20" fill="#C9A86A" letter-spacing="3">历史上的今天 · 07/22</text>
   <line x1="280" y1="52" x2="540" y2="52" stroke="#C9A86A" stroke-width="0.4" stroke-opacity="0.4"/>
-  <text x="410" y="100" text-anchor="middle" font-family="Georgia, serif" font-size="14" fill="#5a6280" font-style="italic">历史此刻,数据未达。</text>
-  <text x="410" y="120" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#5a6280" letter-spacing="1.5">via all-sources-failed · Wikipedia On This Day</text>
+  <text x="40" y="78" font-family="JetBrains Mono, monospace" font-size="15" fill="#C9A86A" font-weight="500">259</text>
+  <text x="100" y="78" font-family="Georgia, 'Noto Serif SC', serif" font-size="13" fill="#F5E6C8"><tspan x="100" dy="0.0">Election of Pope Dionysius after the death of Pope</tspan><tspan x="100" dy="16.9">Sixtus II in the persecutions of Emperor Valerian in the</tspan><tspan x="100" dy="16.9">previous ...</tspan></text>
+  <text x="40" y="144.7" font-family="JetBrains Mono, monospace" font-size="15" fill="#C9A86A" font-weight="500">838</text>
+  <text x="100" y="144.7" font-family="Georgia, 'Noto Serif SC', serif" font-size="13" fill="#F5E6C8"><tspan x="100" dy="0.0">Battle of Anzen: The Byzantine emperor Theophilos</tspan><tspan x="100" dy="16.9">suffers a heavy defeat by the Abbasids.</tspan></text>
+  <text x="40" y="194.5" font-family="JetBrains Mono, monospace" font-size="15" fill="#C9A86A" font-weight="500">1099</text>
+  <text x="100" y="194.5" font-family="Georgia, 'Noto Serif SC', serif" font-size="13" fill="#F5E6C8"><tspan x="100" dy="0.0">First Crusade: Godfrey of Bouillon is elected the first</tspan><tspan x="100" dy="16.9">Defender of the Holy Sepulchre of The Kingdom of</tspan><tspan x="100" dy="16.9">Jerusalem.</tspan></text>
+  
+  <text x="410" y="281.2" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#5a6280" letter-spacing="1.5">via wikipedia-en · Wikipedia On This Day</text>
 </svg>
