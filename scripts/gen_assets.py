@@ -1,0 +1,281 @@
+#!/usr/bin/env python3
+"""生成 badhope/weed33834 profile README 的 SVG 资源。
+
+- banner.svg     顶部星空横幅(静态)
+- quote.svg      每日一言(在线 hitokoto.cn,失败回退本地库)
+- onthisday.svg  历史上的今天(在线 Wikipedia REST API,失败回退占位)
+- divider.svg    分割线装饰(静态)
+
+GitHub Action 每天 UTC 00:00 自动跑一次,刷新 quote.svg / onthisday.svg。
+"""
+import json
+import random
+import urllib.request
+import urllib.error
+from datetime import datetime, timezone
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+ASSETS = ROOT / "assets"
+ASSETS.mkdir(exist_ok=True)
+
+UA = "badhope-weed33834-profile/1.0 (https://github.com/weed33834/weed33834)"
+
+# ---------- 本地名言库(hitokoto 失败时回退) ----------
+FALLBACK_QUOTES = [
+    ("星光不问赶路人,时光不负有心人。", "佚名"),
+    ("我们都在阴沟里,但仍有人仰望星空。", "王尔德"),
+    ("代码是写给人看的,只是顺便能在机器上运行。", "Harold Abelson"),
+    ("不要因为走得太远,而忘记为什么出发。", "纪伯伦"),
+    ("简单是可靠的先决条件。", "Edsger Dijkstra"),
+    ("与其更好,不如不同。", "彼得·蒂尔"),
+    ("夜观星象,以知天命;日写代码,以尽人事。", "badhope/weed33834"),
+    ("慢就是稳,稳就是快。", "海豹突击队"),
+    ("Stay hungry, stay foolish.", "Steve Jobs"),
+    ("做难事必有所得。", "钱穆"),
+    ("最好的代码,是没有代码。", "Jeff Atwood"),
+    ("不积跬步,无以至千里。", "荀子"),
+    ("理想主义者在夜空下从不孤单。", "佚名"),
+    ("Talk is cheap, show me the code.", "Linus Torvalds"),
+    ("纸上得来终觉浅,绝知此事要躬行。", "陆游"),
+    ("一期一会,世当珍惜。", "千利休"),
+    ("纵有疾风起,人生不言弃。", "宫崎骏"),
+    ("黑夜给了我黑色的眼睛,我却用它寻找光明。", "顾城"),
+    ("完美不是无可增加,而是无可删减。", "圣埃克苏佩里"),
+    ("行到水穷处,坐看云起时。", "王维"),
+    ("万物皆有裂痕,那是光照进来的地方。", "莱昂纳德·科恩"),
+    ("种一棵树最好的时间是十年前,其次是现在。", "谚语"),
+    ("山高路远,看世界,也找自己。", "佚名"),
+    ("当你凝视深渊时,深渊也在凝视你。", "尼采"),
+    ("程序的浪漫,在于它精确地执行你的想象。", "佚名"),
+]
+
+# ---------- HTTP 工具 ----------
+def http_get_json(url, timeout=12):
+    req = urllib.request.Request(url, headers={"User-Agent": UA, "Accept": "application/json"})
+    with urllib.request.urlopen(req, timeout=timeout) as r:
+        return json.loads(r.read().decode("utf-8"))
+
+
+def escape_xml(s):
+    """转义 XML 特殊字符,防止 SVG 渲染炸掉。"""
+    return (s or "").replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace('"', "&quot;")
+
+
+# ---------- 一言 ----------
+def fetch_quote():
+    """在线拉取 hitokoto.cn 一言(诗词+哲学),失败按日确定性回退到本地库。"""
+    try:
+        d = http_get_json("https://v1.hitokoto.cn/?c=i&c=k&encode=json", timeout=10)
+        text = (d.get("hitokoto") or "").strip()
+        if not text:
+            raise ValueError("empty hitokoto")
+        author = d.get("from_who") or d.get("from") or "佚名"
+        source = d.get("from") or ""
+        # 若作者与出处一致,只保留一个
+        if source and author != source:
+            author = f"{author}·《{source}》" if author else f"《{source}》"
+        elif source and not author:
+            author = f"《{source}》"
+        return text, author or "佚名", "hitokoto.cn"
+    except Exception as e:
+        today = datetime.now(timezone.utc).timetuple().tm_yday
+        q = FALLBACK_QUOTES[today % len(FALLBACK_QUOTES)]
+        return q[0], q[1], f"local-fallback({type(e).__name__})"
+
+
+# ---------- 历史上的今天 ----------
+def fetch_on_this_day():
+    """在线拉取 Wikipedia On This Day events,挑 3 条最古老的。失败回退空列表。"""
+    now = datetime.now(timezone.utc)
+    mm, dd = f"{now.month:02d}", f"{now.day:02d}"
+    url = f"https://en.wikipedia.org/api/rest_v1/feed/onthisday/events/{mm}/{dd}"
+    try:
+        d = http_get_json(url, timeout=15)
+        events = d.get("events", [])
+        if not events:
+            return [], "wikipedia-empty"
+        # 按年份升序,取最早 3 条(更有"历史厚度")
+        events.sort(key=lambda e: e.get("year", 9999))
+        out = []
+        for e in events[:3]:
+            year = e.get("year")
+            text = (e.get("text") or "").strip()
+            # Wikipedia text 偶尔很长,截到 140 字符
+            if len(text) > 140:
+                text = text[:137] + "..."
+            if year and text:
+                out.append((year, text))
+        return out, "wikipedia"
+    except Exception as e:
+        return [], f"wikipedia-fail({type(e).__name__})"
+
+
+# ---------- 星空 SVG 工具 ----------
+def rand_stars(w, h, count, rng, min_r=0.3, max_r=1.5, min_o=0.25, max_o=1.0, sparkle=True):
+    out = []
+    for _ in range(count):
+        x = rng.uniform(0, w)
+        y = rng.uniform(0, h)
+        r = rng.uniform(min_r, max_r)
+        o = rng.uniform(min_o, max_o)
+        if sparkle and rng.random() < 0.1 and r > 0.9:
+            out.append(
+                f'<g opacity="{o:.2f}"><circle cx="{x:.1f}" cy="{y:.1f}" r="{r:.2f}" fill="#F5E6C8"/>'
+                f'<path d="M{x-r*3.5:.1f},{y:.1f} L{x+r*3.5:.1f},{y:.1f} M{x:.1f},{y-r*3.5:.1f} L{x:.1f},{y+r*3.5:.1f}" stroke="#F5E6C8" stroke-width="0.35" opacity="0.6"/></g>'
+            )
+        else:
+            out.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="{r:.2f}" fill="#F5E6C8" opacity="{o:.2f}"/>')
+    return "\n  ".join(out)
+
+
+def galaxy_band(w, h, rng, count=60):
+    out = []
+    a, b = -0.35, h * 0.7
+    for _ in range(count):
+        x = rng.uniform(0, w)
+        y = a * x + b + rng.gauss(0, 22)
+        if 0 <= y <= h:
+            r = rng.uniform(0.3, 1.1)
+            o = rng.uniform(0.3, 0.85)
+            out.append(f'<circle cx="{x:.1f}" cy="{y:.1f}" r="{r:.2f}" fill="#F5E6C8" opacity="{o:.2f}"/>')
+    return "\n  ".join(out)
+
+
+# ---------- SVG 生成 ----------
+def gen_banner():
+    rng = random.Random(42)
+    W, H = 1200, 320
+    nebula = ""
+    for cx, cy, r, col, op in [(900, 80, 220, "#C9A86A", 0.10), (250, 260, 180, "#3a4a8c", 0.18), (1050, 250, 160, "#8c6a3a", 0.08)]:
+        nebula += f'<circle cx="{cx}" cy="{cy}" r="{r}" fill="{col}" opacity="{op}"/>'
+    return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="100%" height="auto" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#06081A"/>
+      <stop offset="0.55" stop-color="#0B1026"/>
+      <stop offset="1" stop-color="#131a3f"/>
+    </linearGradient>
+  </defs>
+  <rect width="{W}" height="{H}" fill="url(#sky)"/>
+  {nebula}
+  {galaxy_band(W, H, rng, 70)}
+  {rand_stars(W, H, 70, rng)}
+  <line x1="70" y1="28" x2="250" y2="150" stroke="#F5E6C8" stroke-width="1.1" stroke-linecap="round" opacity="0.55"/>
+  <line x1="80" y1="30" x2="120" y2="58" stroke="#F5E6C8" stroke-width="2" stroke-linecap="round" opacity="0.9"/>
+  <line x1="920" y1="18" x2="1060" y2="100" stroke="#F5E6C8" stroke-width="0.9" stroke-linecap="round" opacity="0.5"/>
+  <g stroke="#C9A86A" stroke-width="0.65" stroke-opacity="0.55" fill="none">
+    <line x1="975" y1="55" x2="1040" y2="88"/>
+    <line x1="1040" y1="88" x2="1095" y2="68"/>
+    <line x1="1095" y1="68" x2="1140" y2="108"/>
+    <line x1="1040" y1="88" x2="1078" y2="142"/>
+    <line x1="1078" y1="142" x2="1135" y2="162"/>
+    <line x1="1078" y1="142" x2="1015" y2="172"/>
+  </g>
+  <g fill="#F5E6C8">
+    <circle cx="975" cy="55" r="2.2"/>
+    <circle cx="1040" cy="88" r="2.8"/>
+    <circle cx="1095" cy="68" r="2.0"/>
+    <circle cx="1140" cy="108" r="2.4"/>
+    <circle cx="1078" cy="142" r="3.0"/>
+    <circle cx="1135" cy="162" r="2.0"/>
+    <circle cx="1015" cy="172" r="2.2"/>
+  </g>
+  <text x="600" y="168" text-anchor="middle" font-family="Georgia, 'Times New Roman', 'Noto Serif SC', serif" font-size="60" font-weight="500" fill="#F5E6C8" letter-spacing="3">badhope<tspan fill="#C9A86A" font-weight="600">/</tspan>weed33834</text>
+  <text x="600" y="206" text-anchor="middle" font-family="Georgia, 'Noto Serif SC', serif" font-size="20" font-style="italic" fill="#8B92A8" letter-spacing="7">夜 观 星 象 · 以 代 码 作 舟</text>
+  <line x1="430" y1="246" x2="588" y2="246" stroke="#C9A86A" stroke-width="0.5" stroke-opacity="0.55"/>
+  <line x1="612" y1="246" x2="770" y2="246" stroke="#C9A86A" stroke-width="0.5" stroke-opacity="0.55"/>
+  <path d="M594 240 L600 246 L594 252 M606 240 L600 246 L606 252" fill="none" stroke="#C9A86A" stroke-width="0.7" stroke-opacity="0.8"/>
+  <circle cx="600" cy="246" r="1.6" fill="#C9A86A"/>
+</svg>'''
+
+
+def gen_quote(quote_text, author, source):
+    qt = escape_xml(quote_text)
+    au = escape_xml(author)
+    return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 210" width="100%" height="auto">
+  <defs>
+    <linearGradient id="qbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0B1026"/>
+      <stop offset="1" stop-color="#131a3f"/>
+    </linearGradient>
+  </defs>
+  <rect width="820" height="210" fill="url(#qbg)" rx="6"/>
+  <rect x="6" y="6" width="808" height="198" fill="none" stroke="#C9A86A" stroke-width="0.6" stroke-opacity="0.5" rx="4"/>
+  <path d="M14 14 L36 14 M14 14 L14 36" stroke="#C9A86A" stroke-width="1" fill="none"/>
+  <path d="M806 14 L784 14 M806 14 L806 36" stroke="#C9A86A" stroke-width="1" fill="none"/>
+  <path d="M14 196 L36 196 M14 196 L14 174" stroke="#C9A86A" stroke-width="1" fill="none"/>
+  <path d="M806 196 L784 196 M806 196 L806 174" stroke="#C9A86A" stroke-width="1" fill="none"/>
+  <text x="44" y="86" font-family="Georgia, serif" font-size="76" fill="#C9A86A" fill-opacity="0.32">&#8220;</text>
+  <text x="410" y="108" text-anchor="middle" font-family="Georgia, 'Noto Serif SC', serif" font-size="22" fill="#F5E6C8" letter-spacing="2">{qt}</text>
+  <text x="760" y="158" text-anchor="end" font-family="Georgia, serif" font-size="14" font-style="italic" fill="#8B92A8">— {au}</text>
+  <text x="410" y="190" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#5a6280" letter-spacing="1.5">via {escape_xml(source)}</text>
+</svg>'''
+
+
+def gen_onthisday(events, source, mm, dd):
+    """历史上的今天卡片。events: list of (year, text)。"""
+    H = 80 + len(events) * 38
+    rows = ""
+    for idx, (year, text) in enumerate(events):
+        y_pos = 80 + idx * 38
+        rows += f'''
+  <text x="40" y="{y_pos}" font-family="JetBrains Mono, monospace" font-size="16" fill="#C9A86A" font-weight="500">{escape_xml(str(year))}</text>
+  <text x="100" y="{y_pos}" font-family="Georgia, 'Noto Serif SC', serif" font-size="14" fill="#F5E6C8">{escape_xml(text)}</text>'''
+    placeholder = ""
+    if not events:
+        placeholder = '<text x="410" y="110" text-anchor="middle" font-family="Georgia, serif" font-size="14" fill="#5a6280" font-style="italic">历史此刻,数据未达。</text>'
+    return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 {H}" width="100%" height="auto">
+  <defs>
+    <linearGradient id="obg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0B1026"/>
+      <stop offset="1" stop-color="#131a3f"/>
+    </linearGradient>
+  </defs>
+  <rect width="820" height="{H}" fill="url(#obg)" rx="6"/>
+  <rect x="6" y="6" width="808" height="{H-12}" fill="none" stroke="#C9A86A" stroke-width="0.6" stroke-opacity="0.5" rx="4"/>
+  <text x="410" y="42" text-anchor="middle" font-family="Georgia, 'Noto Serif SC', serif" font-size="20" fill="#C9A86A" letter-spacing="3">历史上的今天 · {escape_xml(mm)}/{escape_xml(dd)}</text>
+  <line x1="280" y1="56" x2="540" y2="56" stroke="#C9A86A" stroke-width="0.4" stroke-opacity="0.4"/>{rows}
+  {placeholder}
+  <text x="410" y="{H-10}" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#5a6280" letter-spacing="1.5">via {escape_xml(source)} · Wikipedia On This Day</text>
+</svg>'''
+
+
+def gen_divider():
+    rng = random.Random(7)
+    stars = "".join(
+        f'<circle cx="{x:.1f}" cy="10" r="{rng.uniform(0.4,1.2):.2f}" fill="#C9A86A" opacity="{rng.uniform(0.3,0.9):.2f}"/>'
+        for x in [rng.uniform(20, 170) for _ in range(8)] + [rng.uniform(230, 380) for _ in range(8)]
+    )
+    return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 20" width="240" height="12">
+  <line x1="20" y1="10" x2="170" y2="10" stroke="#C9A86A" stroke-width="0.4" stroke-opacity="0.5"/>
+  <line x1="230" y1="10" x2="380" y2="10" stroke="#C9A86A" stroke-width="0.4" stroke-opacity="0.5"/>
+  {stars}
+  <path d="M190 6 L200 10 L190 14 M210 6 L200 10 L210 14" fill="none" stroke="#C9A86A" stroke-width="0.7"/>
+  <circle cx="200" cy="10" r="1.4" fill="#C9A86A"/>
+</svg>'''
+
+
+def main():
+    # banner / divider 静态,但每次都重新写一遍以保证一致性
+    (ASSETS / "banner.svg").write_text(gen_banner(), encoding="utf-8")
+    (ASSETS / "divider.svg").write_text(gen_divider(), encoding="utf-8")
+
+    # 一言
+    q_text, q_author, q_source = fetch_quote()
+    (ASSETS / "quote.svg").write_text(gen_quote(q_text, q_author, q_source), encoding="utf-8")
+
+    # 历史上的今天
+    now = datetime.now(timezone.utc)
+    mm, dd = f"{now.month:02d}", f"{now.day:02d}"
+    events, ot_source = fetch_on_this_day()
+    (ASSETS / "onthisday.svg").write_text(gen_onthisday(events, ot_source, mm, dd), encoding="utf-8")
+
+    print(f"[quote] source={q_source}: {q_text} — {q_author}")
+    print(f"[onthisday] source={ot_source}: {len(events)} events on {mm}/{dd}")
+    for y, t in events:
+        print(f"  {y}: {t[:70]}")
+
+
+if __name__ == "__main__":
+    main()
