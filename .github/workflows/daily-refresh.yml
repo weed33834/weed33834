@@ -1,0 +1,40 @@
+name: Daily Refresh
+
+on:
+  schedule:
+    # UTC 00:00 = 北京时间 08:00
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Regenerate daily SVGs (quote + on-this-day)
+        run: python3 scripts/gen_assets.py
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add assets/quote.svg assets/onthisday.svg
+          if git diff --cached --quiet; then
+            echo "no changes"
+          else
+            git commit -m "chore: 每日刷新一言 + 历史上的今天"
+            git push
+          fi
+      - name: Sync to GitCode
+        env:
+          GC_TOKEN: ${{ secrets.GITCODE_TOKEN }}
+        run: |
+          if [ -z "$GC_TOKEN" ]; then
+            echo "GITCODE_TOKEN secret not set, skip GitCode sync"
+            exit 0
+          fi
+          git remote add gitcode "https://badhope:${GC_TOKEN}@gitcode.com/badhope/badhope.git" 2>/dev/null || true
+          git push --force gitcode main
+
