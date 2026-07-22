@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 210" width="100%" height="auto">
+  <defs>
+    <linearGradient id="qbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0B1026"/>
+      <stop offset="1" stop-color="#131a3f"/>
+    </linearGradient>
+  </defs>
+  <rect width="820" height="210" fill="url(#qbg)" rx="6"/>
+  <rect x="6" y="6" width="808" height="198" fill="none" stroke="#C9A86A" stroke-width="0.6" stroke-opacity="0.5" rx="4"/>
+  <path d="M14 14 L36 14 M14 14 L14 36" stroke="#C9A86A" stroke-width="1" fill="none"/>
+  <path d="M806 14 L784 14 M806 14 L806 36" stroke="#C9A86A" stroke-width="1" fill="none"/>
+  <path d="M14 196 L36 196 M14 196 L14 174" stroke="#C9A86A" stroke-width="1" fill="none"/>
+  <path d="M806 196 L784 196 M806 196 L806 174" stroke="#C9A86A" stroke-width="1" fill="none"/>
+  <text x="44" y="86" font-family="Georgia, serif" font-size="76" fill="#C9A86A" fill-opacity="0.32">&#8220;</text>
+  <text x="410" y="108" text-anchor="middle" font-family="Georgia, 'Noto Serif SC', serif" font-size="22" fill="#F5E6C8" letter-spacing="2">与人和者，谓之人乐；与天和者，谓之天乐。</text>
+  <text x="760" y="158" text-anchor="end" font-family="Georgia, serif" font-size="14" font-style="italic" fill="#8B92A8">— 庄子·《庄子·天道》</text>
+  <text x="410" y="190" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#5a6280" letter-spacing="1.5">via hitokoto.cn</text>
+</svg>
