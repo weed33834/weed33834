@@ -95,6 +95,44 @@ def escape_xml(s):
     )
 
 
+def text_width(s):
+    """估算文本宽度(中文2,英文1)。"""
+    return sum(2 if ord(c) > 127 else 1 for c in s)
+
+
+def wrap_text(s, max_width):
+    """按估算宽度换行,返回行列表。"""
+    if not s:
+        return [""]
+    # 按空格分词(英文)或逐字(中文)
+    words = s.split(" ") if " " in s else list(s)
+    lines = []
+    current = ""
+    for w in words:
+        sep = " " if current and " " in s else ""
+        test = current + sep + w if current else w
+        if text_width(test) <= max_width or not current:
+            current = test
+        else:
+            lines.append(current)
+            current = w
+    if current:
+        lines.append(current)
+    return lines
+
+
+def tspan_lines(text, x, y, max_width, font_size, line_height_factor=1.3):
+    """生成带换行的 <tspan> SVG 文本。返回 (tspan_xml, total_height)。"""
+    lines = wrap_text(escape_xml(text), max_width)
+    lh = font_size * line_height_factor
+    tspans = ""
+    for i, line in enumerate(lines):
+        dy = 0 if i == 0 else lh
+        tspans += f'<tspan x="{x}" dy="{dy:.1f}">{line}</tspan>'
+    total_h = len(lines) * lh
+    return tspans, total_h
+
+
 # ---------- 一言 ----------
 def fetch_quote():
     """在线拉取 hitokoto.cn 一言(诗词+哲学),失败按日确定性回退到本地库。
@@ -263,38 +301,68 @@ def gen_banner():
 def gen_quote(quote_text, author, source):
     qt = escape_xml(quote_text)
     au = escape_xml(author)
-    return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 210" width="100%" height="auto">
+    # 长文本自动换行
+    max_w = 44
+    lines = wrap_text(quote_text, max_w)
+    font_size = 22 if len(lines) <= 1 else 19 if len(lines) == 2 else 16
+    lh = font_size * 1.35
+    total_h = len(lines) * lh
+    start_y = 108 - total_h / 2 + font_size * 0.8
+    tspans = ""
+    for i, line in enumerate(lines):
+        dy = 0 if i == 0 else lh
+        tspans += f'<tspan x="410" dy="{dy:.1f}">{escape_xml(line)}</tspan>'
+    H = 210 if total_h < 100 else 210 + (total_h - 100)
+    author_y = start_y + total_h + 20
+    return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 {H}" width="100%" height="auto">
   <defs>
     <linearGradient id="qbg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#0B1026"/>
       <stop offset="1" stop-color="#131a3f"/>
     </linearGradient>
   </defs>
-  <rect width="820" height="210" fill="url(#qbg)" rx="6"/>
-  <rect x="6" y="6" width="808" height="198" fill="none" stroke="#C9A86A" stroke-width="0.6" stroke-opacity="0.5" rx="4"/>
+  <rect width="820" height="{H}" fill="url(#qbg)" rx="6"/>
+  <rect x="6" y="6" width="808" height="{H-12}" fill="none" stroke="#C9A86A" stroke-width="0.6" stroke-opacity="0.5" rx="4"/>
   <path d="M14 14 L36 14 M14 14 L14 36" stroke="#C9A86A" stroke-width="1" fill="none"/>
   <path d="M806 14 L784 14 M806 14 L806 36" stroke="#C9A86A" stroke-width="1" fill="none"/>
-  <path d="M14 196 L36 196 M14 196 L14 174" stroke="#C9A86A" stroke-width="1" fill="none"/>
-  <path d="M806 196 L784 196 M806 196 L806 174" stroke="#C9A86A" stroke-width="1" fill="none"/>
+  <path d="M14 {H-14} L36 {H-14} M14 {H-14} L14 {H-36}" stroke="#C9A86A" stroke-width="1" fill="none"/>
+  <path d="M806 {H-14} L784 {H-14} M806 {H-14} L806 {H-36}" stroke="#C9A86A" stroke-width="1" fill="none"/>
   <text x="44" y="86" font-family="Georgia, serif" font-size="76" fill="#C9A86A" fill-opacity="0.32">&#8220;</text>
-  <text x="410" y="108" text-anchor="middle" font-family="Georgia, 'Noto Serif SC', serif" font-size="22" fill="#F5E6C8" letter-spacing="2">{qt}</text>
-  <text x="760" y="158" text-anchor="end" font-family="Georgia, serif" font-size="14" font-style="italic" fill="#8B92A8">— {au}</text>
-  <text x="410" y="190" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#5a6280" letter-spacing="1.5">via {escape_xml(source)}</text>
+  <text x="410" y="{start_y:.1f}" text-anchor="middle" font-family="Georgia, 'Noto Serif SC', serif" font-size="{font_size}" fill="#F5E6C8" letter-spacing="2">{tspans}</text>
+  <text x="760" y="{author_y:.1f}" text-anchor="end" font-family="Georgia, serif" font-size="14" font-style="italic" fill="#8B92A8">— {au}</text>
+  <text x="410" y="{H-18}" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#5a6280" letter-spacing="1.5">via {escape_xml(source)}</text>
 </svg>'''
 
 
 def gen_onthisday(events, source, mm, dd):
-    """历史上的今天卡片。events: list of (year, text)。"""
-    H = 80 + len(events) * 38
-    rows = ""
-    for idx, (year, text) in enumerate(events):
-        y_pos = 80 + idx * 38
-        rows += f'''
-  <text x="40" y="{y_pos}" font-family="JetBrains Mono, monospace" font-size="16" fill="#C9A86A" font-weight="500">{escape_xml(str(year))}</text>
-  <text x="100" y="{y_pos}" font-family="Georgia, 'Noto Serif SC', serif" font-size="14" fill="#F5E6C8">{escape_xml(text)}</text>'''
-    placeholder = ""
+    """历史上的今天卡片。events: list of (year, text)。自动换行防溢出。"""
+    # 动态计算高度:每个事件可能有多行
+    font_size = 13
+    year_font_size = 15
+    max_text_width = 56  # 估算字符宽度(x=100 到 780,约 56 个英文字符宽)
+    line_h = font_size * 1.4
+
+    rows_xml = ""
+    current_y = 78
+    event_blocks = []
+    for year, text in events:
+        tspans, h = tspan_lines(text, 100, current_y, max_text_width, font_size)
+        event_blocks.append((year, current_y, tspans, h))
+        current_y += h + 16  # 事件间距
+
     if not events:
-        placeholder = '<text x="410" y="110" text-anchor="middle" font-family="Georgia, serif" font-size="14" fill="#5a6280" font-style="italic">历史此刻,数据未达。</text>'
+        H = 130
+        placeholder = '<text x="410" y="100" text-anchor="middle" font-family="Georgia, serif" font-size="14" fill="#5a6280" font-style="italic">历史此刻,数据未达。</text>'
+    else:
+        H = current_y + 30
+
+    rows_xml = ""
+    for year, y_pos, tspans, h in event_blocks:
+        rows_xml += f'''
+  <text x="40" y="{y_pos}" font-family="JetBrains Mono, monospace" font-size="{year_font_size}" fill="#C9A86A" font-weight="500">{escape_xml(str(year))}</text>
+  <text x="100" y="{y_pos}" font-family="Georgia, 'Noto Serif SC', serif" font-size="{font_size}" fill="#F5E6C8">{tspans}</text>'''
+
+    placeholder = "" if events else placeholder
     return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 {H}" width="100%" height="auto">
   <defs>
     <linearGradient id="obg" x1="0" y1="0" x2="1" y2="1">
@@ -304,8 +372,8 @@ def gen_onthisday(events, source, mm, dd):
   </defs>
   <rect width="820" height="{H}" fill="url(#obg)" rx="6"/>
   <rect x="6" y="6" width="808" height="{H-12}" fill="none" stroke="#C9A86A" stroke-width="0.6" stroke-opacity="0.5" rx="4"/>
-  <text x="410" y="42" text-anchor="middle" font-family="Georgia, 'Noto Serif SC', serif" font-size="20" fill="#C9A86A" letter-spacing="3">历史上的今天 · {escape_xml(mm)}/{escape_xml(dd)}</text>
-  <line x1="280" y1="56" x2="540" y2="56" stroke="#C9A86A" stroke-width="0.4" stroke-opacity="0.4"/>{rows}
+  <text x="410" y="40" text-anchor="middle" font-family="Georgia, 'Noto Serif SC', serif" font-size="20" fill="#C9A86A" letter-spacing="3">历史上的今天 · {escape_xml(mm)}/{escape_xml(dd)}</text>
+  <line x1="280" y1="52" x2="540" y2="52" stroke="#C9A86A" stroke-width="0.4" stroke-opacity="0.4"/>{rows_xml}
   {placeholder}
   <text x="410" y="{H-10}" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#5a6280" letter-spacing="1.5">via {escape_xml(source)} · Wikipedia On This Day</text>
 </svg>'''

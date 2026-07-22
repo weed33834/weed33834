@@ -1,10 +1,15 @@
+<<<<<<< Updated upstream
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 194" width="100%" height="auto">
+=======
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 130" width="100%" height="auto">
+>>>>>>> Stashed changes
   <defs>
     <linearGradient id="obg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#0B1026"/>
       <stop offset="1" stop-color="#131a3f"/>
     </linearGradient>
   </defs>
+<<<<<<< Updated upstream
   <rect width="820" height="194" fill="url(#obg)" rx="6"/>
   <rect x="6" y="6" width="808" height="182" fill="none" stroke="#C9A86A" stroke-width="0.6" stroke-opacity="0.5" rx="4"/>
   <text x="410" y="42" text-anchor="middle" font-family="Georgia, 'Noto Serif SC', serif" font-size="20" fill="#C9A86A" letter-spacing="3">历史上的今天 · 07/22</text>
@@ -17,4 +22,12 @@
   <text x="100" y="156" font-family="Georgia, 'Noto Serif SC', serif" font-size="14" fill="#F5E6C8">First Crusade: Godfrey of Bouillon is elected the first Defender of the Holy Sepulchre of The Kingdom of Jerusalem.</text>
   
   <text x="410" y="184" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#5a6280" letter-spacing="1.5">via wikipedia-en · Wikipedia On This Day</text>
+=======
+  <rect width="820" height="130" fill="url(#obg)" rx="6"/>
+  <rect x="6" y="6" width="808" height="118" fill="none" stroke="#C9A86A" stroke-width="0.6" stroke-opacity="0.5" rx="4"/>
+  <text x="410" y="40" text-anchor="middle" font-family="Georgia, 'Noto Serif SC', serif" font-size="20" fill="#C9A86A" letter-spacing="3">历史上的今天 · 07/22</text>
+  <line x1="280" y1="52" x2="540" y2="52" stroke="#C9A86A" stroke-width="0.4" stroke-opacity="0.4"/>
+  <text x="410" y="100" text-anchor="middle" font-family="Georgia, serif" font-size="14" fill="#5a6280" font-style="italic">历史此刻,数据未达。</text>
+  <text x="410" y="120" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#5a6280" letter-spacing="1.5">via all-sources-failed · Wikipedia On This Day</text>
+>>>>>>> Stashed changes
 </svg>

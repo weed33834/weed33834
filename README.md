@@ -44,14 +44,23 @@ badhope / weed33834
   <img src="./assets/divider.svg" alt="divider" />
 </p>
 
+## 代表项目
+
+<p align="center">
+  <a href="https://github.com/weed33834/nova"><img src="https://github-readme-stats.vercel.app/api/pin/?username=weed33834&repo=nova&bg_color=0B1026&title_color=C9A86A&text_color=F5E6C8&icon_color=C9A86A&border_color=C9A86A40&hide_border=true" alt="nova" /></a>
+  <a href="https://github.com/weed33834/agentvalue"><img src="https://github-readme-stats.vercel.app/api/pin/?username=weed33834&repo=agentvalue&bg_color=0B1026&title_color=C9A86A&text_color=F5E6C8&icon_color=C9A86A&border_color=C9A86A40&hide_border=true" alt="agentvalue" /></a>
+  <a href="https://github.com/weed33834/echo"><img src="https://github-readme-stats.vercel.app/api/pin/?username=weed33834&repo=echo&bg_color=0B1026&title_color=C9A86A&text_color=F5E6C8&icon_color=C9A86A&border_color=C9A86A40&hide_border=true" alt="echo" /></a>
+</p>
+
+<p align="center">
+  <img src="./assets/divider.svg" alt="divider" />
+</p>
+
 ## 数据星图
 
 <p align="center">
   <img height="170" src="https://github-readme-stats.vercel.app/api?username=weed33834&show_icons=true&hide_border=true&bg_color=0B1026&title_color=C9A86A&icon_color=C9A86A&text_color=F5E6C8&include_all_commits=true&count_private=true" alt="stats" />
   <img height="170" src="https://github-readme-streak-stats.herokuapp.com/?user=weed33834&hide_border=true&background=0B1026&ring=C9A86A&fire=C9A86A&currStreakLabel=C9A86A&sideLabels=C9A86A&dates=F5E6C8" alt="streak" />
-  <br/>
-  <img height="170" src="https://github-readme-stats.vercel.app/api/top-langs/?username=weed33834&layout=compact&hide_border=true&bg_color=0B1026&title_color=C9A86A&text_color=F5E6C8&langs_count=8" alt="top langs" />
-  <img height="170" src="https://github-readme-activity-graph.vercel.app/graph?username=weed33834&bg_color=0B1026&color=C9A86A&line=C9A86A&point=F5E6C8&hide_border=true&area=true&area_color=C9A86A30" alt="activity" />
 </p>
 
 <p align="center">
