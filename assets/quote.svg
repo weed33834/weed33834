@@ -12,13 +12,7 @@
   <path d="M14 196 L36 196 M14 196 L14 174" stroke="#C9A86A" stroke-width="1" fill="none"/>
   <path d="M806 196 L784 196 M806 196 L806 174" stroke="#C9A86A" stroke-width="1" fill="none"/>
   <text x="44" y="86" font-family="Georgia, serif" font-size="76" fill="#C9A86A" fill-opacity="0.32">&#8220;</text>
-<<<<<<< Updated upstream
-  <text x="410" y="108" text-anchor="middle" font-family="Georgia, 'Noto Serif SC', serif" font-size="22" fill="#F5E6C8" letter-spacing="2">未经审视的人生是不值得过的。</text>
-  <text x="760" y="158" text-anchor="end" font-family="Georgia, serif" font-size="14" font-style="italic" fill="#8B92A8">— 苏格拉底</text>
-  <text x="410" y="190" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#5a6280" letter-spacing="1.5">via hitokoto.cn</text>
-=======
-  <text x="410" y="110.8" text-anchor="middle" font-family="Georgia, 'Noto Serif SC', serif" font-size="22" fill="#F5E6C8" letter-spacing="2"><tspan x="410" dy="0.0">苍山负雪，明烛天南。</tspan></text>
-  <text x="760" y="160.4" text-anchor="end" font-family="Georgia, serif" font-size="14" font-style="italic" fill="#8B92A8">— 清·姚鼐·《登泰山记》</text>
+  <text x="410" y="110.8" text-anchor="middle" font-family="Georgia, 'Noto Serif SC', serif" font-size="22" fill="#F5E6C8" letter-spacing="2"><tspan x="410" dy="0.0">夜阑卧听风吹雨，铁马冰河入梦来。</tspan></text>
+  <text x="760" y="160.4" text-anchor="end" font-family="Georgia, serif" font-size="14" font-style="italic" fill="#8B92A8">— 陆游·《十一月四日风雨大作》</text>
   <text x="410" y="192" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#5a6280" letter-spacing="1.5">via hitokoto.cn</text>
->>>>>>> Stashed changes
 </svg>
