@@ -1,34 +1,34 @@
 [English](README.md) | [中文](README.zh.md) | [日本語](README.ja.md)
 
 <p align="center">
-  <img src="./assets/banner.svg" alt="badhope/weed33834 · Stargazing" width="100%" />
+  <img src="./assets/banner.svg" alt="badhope/weed33834 · 夜空を観る" width="100%" />
 </p>
 
 <p align="center">
-  <em>Below the night sky, between the lines of code. Every project is a star, hung in its own sky.</em>
+  <em>夜空の下、コードの間に。プロジェクトはどれも星、それぞれの夜空に掲げる。</em>
 </p>
 
 <p align="center">
   <img src="./assets/divider.svg" alt="divider" />
 </p>
 
-## About
+## プロフィール
 
 ```text
 badhope / weed33834
 ```
 
-A developer who turns abstract ideas into tangible interfaces. Focused on full-stack work and creative tooling, with a preference for clean, considered design over yet another template. Code and starlight have this in common: the craft is in the details.
+抽象的なアイデアを触れるインターフェースに落とし込む開発者。フルスタックとクリエイティブなツール作りを中心に、シンプルで質感のあるデザインを好み、画一的なテンプレートを嫌う。コードも星空も同じで、巧みさは細部に宿る。
 
-- Currently working on: interactive visualizations, automated workflows, and small tools that earn a knowing smile
-- Go-to languages: TypeScript / Python / Rust
-- Motto: rather than better, different
+- 最近取り組んでいること:インタラクティブな可視化、自動化ワークフロー、思わず頷ける小道具
+- よく使う言語:TypeScript / Python / Rust
+- 座右の銘:より良くあるより、違ってあれ
 
 <p align="center">
   <img src="./assets/divider.svg" alt="divider" />
 </p>
 
-## Tech Stack
+## 技術スタック
 
 <p align="center">
   <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white&labelColor=0B1026" alt="TypeScript" />
@@ -46,7 +46,7 @@ A developer who turns abstract ideas into tangible interfaces. Focused on full-s
   <img src="./assets/divider.svg" alt="divider" />
 </p>
 
-## Featured Projects
+## 代表プロジェクト
 
 <p align="center">
   <a href="https://github.com/weed33834/nova"><img src="https://github-readme-stats.vercel.app/api/pin/?username=weed33834&repo=nova&bg_color=0B1026&title_color=C9A86A&text_color=F5E6C8&icon_color=C9A86A&border_color=C9A86A40&hide_border=true" alt="nova" /></a>
@@ -58,7 +58,7 @@ A developer who turns abstract ideas into tangible interfaces. Focused on full-s
   <img src="./assets/divider.svg" alt="divider" />
 </p>
 
-## Stats Constellation
+## データ星図
 
 <p align="center">
   <img height="170" src="https://github-readme-stats.vercel.app/api?username=weed33834&show_icons=true&hide_border=true&bg_color=0B1026&title_color=C9A86A&icon_color=C9A86A&text_color=F5E6C8&include_all_commits=true&count_private=true" alt="stats" />
@@ -69,31 +69,31 @@ A developer who turns abstract ideas into tangible interfaces. Focused on full-s
   <img src="./assets/divider.svg" alt="divider" />
 </p>
 
-## Daily Quote
+## 毎日の一言
 
 <p align="center">
   <img src="./assets/quote.svg" alt="daily quote" width="560" />
 </p>
 
-<p align="center"><sub>Updated daily at 00:00 UTC via GitHub Action · Source: hitokoto.cn (poetry & philosophy)</sub></p>
+<p align="center"><sub>毎日 UTC 00:00 に GitHub Action で自動更新 · データ元:hitokoto.cn(詩と哲学)</sub></p>
 
 <p align="center">
   <img src="./assets/divider.svg" alt="divider" />
 </p>
 
-## On This Day
+## 今日は何の日
 
 <p align="center">
   <img src="./assets/onthisday.svg" alt="on this day" width="560" />
 </p>
 
-<p align="center"><sub>Updated daily at 00:00 UTC via GitHub Action · Source: Wikipedia On This Day</sub></p>
+<p align="center"><sub>毎日 UTC 00:00 に GitHub Action で自動更新 · データ元:Wikipedia On This Day</sub></p>
 
 <p align="center">
   <img src="./assets/divider.svg" alt="divider" />
 </p>
 
-## Elsewhere
+## 他の場所
 
 <p align="center">
   <a href="https://github.com/weed33834"><img src="https://img.shields.io/badge/GitHub-weed33834-C9A86A?style=flat&logo=github&logoColor=white&labelColor=0B1026" alt="GitHub" /></a>
@@ -106,5 +106,5 @@ A developer who turns abstract ideas into tangible interfaces. Focused on full-s
 </p>
 
 <p align="center">
-  <sub>© badhope/weed33834 · Code as a boat, stargazing by night.</sub>
+  <sub>© badhope/weed33834 · コードを舟として、夜空を観る。</sub>
 </p>
