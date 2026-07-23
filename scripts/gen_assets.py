@@ -299,7 +299,6 @@ def gen_banner():
 
 
 def gen_quote(quote_text, author, source):
-    qt = escape_xml(quote_text)
     au = escape_xml(author)
     # 长文本自动换行
     max_w = 44

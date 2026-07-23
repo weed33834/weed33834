@@ -96,7 +96,7 @@ badhope / weed33834
 <p align="center">
   <a href="https://github.com/weed33834"><img src="https://img.shields.io/badge/GitHub-weed33834-C9A86A?style=flat&logo=github&logoColor=white&labelColor=0B1026" alt="GitHub" /></a>
   <a href="https://gitcode.com/badhope"><img src="https://img.shields.io/badge/GitCode-badhope-C9A86A?style=flat&logo=git&logoColor=white&labelColor=0B1026" alt="GitCode" /></a>
-  <a href="https://github.com/weed33834?tab=repositories"><img src="https://img.shields.io/badge/ Repositories-000000?style=flat&logo=github&logoColor=white&labelColor=0B1026" alt="repos" /></a>
+  <a href="https://github.com/weed33834?tab=repositories"><img src="https://img.shields.io/badge/Repositories-000000?style=flat&logo=github&logoColor=white&labelColor=0B1026" alt="repos" /></a>
 </p>
 
 <p align="center">
