@@ -1,20 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 291.2" width="100%" height="auto">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 240.50000000000003" width="100%" height="auto">
   <defs>
     <linearGradient id="obg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#0B1026"/>
       <stop offset="1" stop-color="#131a3f"/>
     </linearGradient>
   </defs>
-  <rect width="820" height="291.2" fill="url(#obg)" rx="6"/>
-  <rect x="6" y="6" width="808" height="279.2" fill="none" stroke="#C9A86A" stroke-width="0.6" stroke-opacity="0.5" rx="4"/>
-  <text x="410" y="40" text-anchor="middle" font-family="Georgia, 'Noto Serif SC', serif" font-size="20" fill="#C9A86A" letter-spacing="3">历史上的今天 · 07/28</text>
+  <rect width="820" height="240.50000000000003" fill="url(#obg)" rx="6"/>
+  <rect x="6" y="6" width="808" height="228.50000000000003" fill="none" stroke="#C9A86A" stroke-width="0.6" stroke-opacity="0.5" rx="4"/>
+  <text x="410" y="40" text-anchor="middle" font-family="Georgia, 'Noto Serif SC', serif" font-size="20" fill="#C9A86A" letter-spacing="3">历史上的今天 · 07/29</text>
   <line x1="280" y1="52" x2="540" y2="52" stroke="#C9A86A" stroke-width="0.4" stroke-opacity="0.4"/>
-  <text x="40" y="78" font-family="JetBrains Mono, monospace" font-size="15" fill="#C9A86A" font-weight="500">484</text>
-  <text x="100" y="78" font-family="Georgia, 'Noto Serif SC', serif" font-size="13" fill="#F5E6C8"><tspan x="100" dy="0.0">Pope Felix III excommunicated patriarch Acacius of</tspan><tspan x="100" dy="16.9">Constantinople for his support of the Henoticon and his</tspan><tspan x="100" dy="16.9">support of...</tspan></text>
-  <text x="40" y="144.7" font-family="JetBrains Mono, monospace" font-size="15" fill="#C9A86A" font-weight="500">1364</text>
-  <text x="100" y="144.7" font-family="Georgia, 'Noto Serif SC', serif" font-size="13" fill="#F5E6C8"><tspan x="100" dy="0.0">Troops of the Republic of Pisa and the Republic of</tspan><tspan x="100" dy="16.9">Florence clash in the Battle of Cascina.</tspan></text>
-  <text x="40" y="194.5" font-family="JetBrains Mono, monospace" font-size="15" fill="#C9A86A" font-weight="500">1402</text>
-  <text x="100" y="194.5" font-family="Georgia, 'Noto Serif SC', serif" font-size="13" fill="#F5E6C8"><tspan x="100" dy="0.0">Ottoman-Timurid Wars: Battle of Ankara: Timur, ruler of</tspan><tspan x="100" dy="16.9">Timurid Empire, defeats forces of the Ottoman Empire</tspan><tspan x="100" dy="16.9">sultan B...</tspan></text>
+  <text x="40" y="78" font-family="JetBrains Mono, monospace" font-size="15" fill="#C9A86A" font-weight="500">-587</text>
+  <text x="100" y="78" font-family="Georgia, 'Noto Serif SC', serif" font-size="13" fill="#F5E6C8"><tspan x="100" dy="0.0">The Neo-Babylonian Empire sacks Jerusalem and destroys</tspan><tspan x="100" dy="16.9">the First Temple.</tspan></text>
+  <text x="40" y="127.80000000000001" font-family="JetBrains Mono, monospace" font-size="15" fill="#C9A86A" font-weight="500">238</text>
+  <text x="100" y="127.80000000000001" font-family="Georgia, 'Noto Serif SC', serif" font-size="13" fill="#F5E6C8"><tspan x="100" dy="0.0">The Praetorian guard revolts against emperors Balbinus</tspan><tspan x="100" dy="16.9">and Pupienus and arrests them.</tspan></text>
+  <text x="40" y="177.60000000000002" font-family="JetBrains Mono, monospace" font-size="15" fill="#C9A86A" font-weight="500">615</text>
+  <text x="100" y="177.60000000000002" font-family="Georgia, 'Noto Serif SC', serif" font-size="13" fill="#F5E6C8"><tspan x="100" dy="0.0">Pakal ascends the throne of Palenque at the age of 12.</tspan></text>
   
-  <text x="410" y="281.2" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#5a6280" letter-spacing="1.5">via wikipedia-en · Wikipedia On This Day</text>
+  <text x="410" y="230.50000000000003" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#5a6280" letter-spacing="1.5">via wikipedia-en · Wikipedia On This Day</text>
 </svg>
