@@ -7,7 +7,7 @@
 - divider.svg    分割线装饰(静态)
 
 GitHub Action 每天 UTC 00:00 自动跑一次,刷新 quote.svg / onthisday.svg,
-然后 commit 到 main 并同步推送到 GitCode badhope/badhope。
+然后 commit 到 main。镜像仓库通过手动同步维护。
 
 健壮性策略:
 1. 每个 API 调用带 timeout + 重试(3 次,指数退避)

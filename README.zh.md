@@ -49,9 +49,9 @@ badhope / weed33834
 ## 代表项目
 
 <p align="center">
-  <a href="https://github.com/weed33834/nova"><img src="https://github-readme-stats.vercel.app/api/pin/?username=weed33834&repo=nova&bg_color=0B1026&title_color=C9A86A&text_color=F5E6C8&icon_color=C9A86A&border_color=C9A86A40&hide_border=true" alt="nova" /></a>
-  <a href="https://github.com/weed33834/agentvalue"><img src="https://github-readme-stats.vercel.app/api/pin/?username=weed33834&repo=agentvalue&bg_color=0B1026&title_color=C9A86A&text_color=F5E6C8&icon_color=C9A86A&border_color=C9A86A40&hide_border=true" alt="agentvalue" /></a>
-  <a href="https://github.com/weed33834/echo"><img src="https://github-readme-stats.vercel.app/api/pin/?username=weed33834&repo=echo&bg_color=0B1026&title_color=C9A86A&text_color=F5E6C8&icon_color=C9A86A&border_color=C9A86A40&hide_border=true" alt="echo" /></a>
+  <a href="https://github.com/weed33834/nova"><img src="https://img.shields.io/badge/⭐_nova-AI_Classroom-C9A86A?style=for-the-badge&logo=github&logoColor=white&labelColor=0B1026" alt="nova" /></a>
+  <a href="https://github.com/weed33834/agentvalue"><img src="https://img.shields.io/badge/⭐_agentvalue-Agent_Platform-C9A86A?style=for-the-badge&logo=github&logoColor=white&labelColor=0B1026" alt="agentvalue" /></a>
+  <a href="https://github.com/weed33834/echo"><img src="https://img.shields.io/badge/⭐_echo-Divination_Engine-C9A86A?style=for-the-badge&logo=github&logoColor=white&labelColor=0B1026" alt="echo" /></a>
 </p>
 
 <p align="center">
@@ -61,8 +61,11 @@ badhope / weed33834
 ## 数据星图
 
 <p align="center">
-  <img height="170" src="https://github-readme-stats.vercel.app/api?username=weed33834&show_icons=true&hide_border=true&bg_color=0B1026&title_color=C9A86A&icon_color=C9A86A&text_color=F5E6C8&include_all_commits=true&count_private=true" alt="stats" />
-  <img height="170" src="https://github-readme-streak-stats.herokuapp.com/?user=weed33834&hide_border=true&background=0B1026&ring=C9A86A&fire=C9A86A&currStreakLabel=C9A86A&sideLabels=C9A86A&dates=F5E6C8" alt="streak" />
+  <a href="https://github.com/weed33834?tab=repositories"><img src="https://img.shields.io/badge/dynamic/json?url=https://api.github.com/users/weed33834&query=$.public_repos&label=Repos&color=C9A86A&labelColor=0B1026&style=flat-square" alt="repos" /></a>
+  <a href="https://github.com/weed33834?tab=followers"><img src="https://img.shields.io/badge/dynamic/json?url=https://api.github.com/users/weed33834&query=$.followers&label=Followers&color=C9A86A&labelColor=0B1026&style=flat-square" alt="followers" /></a>
+  <a href="https://github.com/weed33834?tab=following"><img src="https://img.shields.io/badge/dynamic/json?url=https://api.github.com/users/weed33834&query=$.following&label=Following&color=C9A86A&labelColor=0B1026&style=flat-square" alt="following" /></a>
+  <br/>
+  <img src="https://streak-stats.demolab.com/?user=weed33834&hide_border=true&background=0B1026&ring=C9A86A&fire=C9A86A&currStreakLabel=C9A86A&sideLabels=C9A86A&dates=F5E6C8" alt="streak" />
 </p>
 
 <p align="center">
