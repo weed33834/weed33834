@@ -108,3 +108,15 @@ A developer who turns abstract ideas into tangible interfaces. Focused on full-s
 <p align="center">
   <sub>© badhope/weed33834 · Code as a boat, stargazing by night.</sub>
 </p>
+
+## Mirrors / 镜像
+
+This profile is primarily hosted on **GitHub** and mirrored to GitCode and Gitee.
+
+| Platform | URL |
+|----------|-----|
+| **GitHub** (primary) | https://github.com/weed33834 |
+| GitCode (mirror) | https://gitcode.com/badhope/badhope |
+| Gitee (mirror) | https://gitee.com/badhope/badhope |
+
+> Content is synchronized manually across platforms. GitHub is the canonical source.
