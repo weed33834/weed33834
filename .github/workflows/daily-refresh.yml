@@ -52,17 +52,6 @@ jobs:
             git push || { git fetch origin && git rebase origin/main && git push; }
           fi
 
-      - name: Sync to GitCode
-        env:
-          GITCODE_TOKEN: ${{ secrets.GITCODE_TOKEN }}
-        run: |
-          if [ -z "$GITCODE_TOKEN" ]; then
-            echo "GITCODE_TOKEN not set, skip"
-            exit 0
-          fi
-          git remote add gitcode "https://badhope:${GITCODE_TOKEN}@gitcode.com/badhope/badhope.git" 2>/dev/null || true
-          git push --force gitcode main
-
       - name: Health check
         if: always()
         run: |
