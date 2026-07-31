@@ -1,20 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 257.4" width="100%" height="auto">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 291.2" width="100%" height="auto">
   <defs>
     <linearGradient id="obg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#0B1026"/>
       <stop offset="1" stop-color="#131a3f"/>
     </linearGradient>
   </defs>
-  <rect width="820" height="257.4" fill="url(#obg)" rx="6"/>
-  <rect x="6" y="6" width="808" height="245.39999999999998" fill="none" stroke="#C9A86A" stroke-width="0.6" stroke-opacity="0.5" rx="4"/>
-  <text x="410" y="40" text-anchor="middle" font-family="Georgia, 'Noto Serif SC', serif" font-size="20" fill="#C9A86A" letter-spacing="3">历史上的今天 · 07/30</text>
+  <rect width="820" height="291.2" fill="url(#obg)" rx="6"/>
+  <rect x="6" y="6" width="808" height="279.2" fill="none" stroke="#C9A86A" stroke-width="0.6" stroke-opacity="0.5" rx="4"/>
+  <text x="410" y="40" text-anchor="middle" font-family="Georgia, 'Noto Serif SC', serif" font-size="20" fill="#C9A86A" letter-spacing="3">历史上的今天 · 07/31</text>
   <line x1="280" y1="52" x2="540" y2="52" stroke="#C9A86A" stroke-width="0.4" stroke-opacity="0.4"/>
-  <text x="40" y="78" font-family="JetBrains Mono, monospace" font-size="15" fill="#C9A86A" font-weight="500">-30</text>
-  <text x="100" y="78" font-family="Georgia, 'Noto Serif SC', serif" font-size="13" fill="#F5E6C8"><tspan x="100" dy="0.0">Mark Antony wins a final cavalry battle against Octavian</tspan><tspan x="100" dy="16.9">in the battle of Alexandria, but his infantry is</tspan><tspan x="100" dy="16.9">defeated an...</tspan></text>
-  <text x="40" y="144.7" font-family="JetBrains Mono, monospace" font-size="15" fill="#C9A86A" font-weight="500">657</text>
-  <text x="100" y="144.7" font-family="Georgia, 'Noto Serif SC', serif" font-size="13" fill="#F5E6C8"><tspan x="100" dy="0.0">Election of pope Vitalian following the death of pope</tspan><tspan x="100" dy="16.9">Eugene I in the previous month.</tspan></text>
-  <text x="40" y="194.5" font-family="JetBrains Mono, monospace" font-size="15" fill="#C9A86A" font-weight="500">762</text>
-  <text x="100" y="194.5" font-family="Georgia, 'Noto Serif SC', serif" font-size="13" fill="#F5E6C8"><tspan x="100" dy="0.0">Baghdad is founded.</tspan></text>
+  <text x="40" y="78" font-family="JetBrains Mono, monospace" font-size="15" fill="#C9A86A" font-weight="500">398</text>
+  <text x="100" y="78" font-family="Georgia, 'Noto Serif SC', serif" font-size="13" fill="#F5E6C8"><tspan x="100" dy="0.0">End of the Gildonic rebellion after Gildo's forces are</tspan><tspan x="100" dy="16.9">defeated by forces loyal to Western Roman Emperor</tspan><tspan x="100" dy="16.9">Honorius und...</tspan></text>
+  <text x="40" y="144.7" font-family="JetBrains Mono, monospace" font-size="15" fill="#C9A86A" font-weight="500">432</text>
+  <text x="100" y="144.7" font-family="Georgia, 'Noto Serif SC', serif" font-size="13" fill="#F5E6C8"><tspan x="100" dy="0.0">Election of pope Sixtus III following the death of pope</tspan><tspan x="100" dy="16.9">Celestine I four days prior.</tspan></text>
+  <text x="40" y="194.5" font-family="JetBrains Mono, monospace" font-size="15" fill="#C9A86A" font-weight="500">768</text>
+  <text x="100" y="194.5" font-family="Georgia, 'Noto Serif SC', serif" font-size="13" fill="#F5E6C8"><tspan x="100" dy="0.0">Antipope Constantine II is arrested by primicerius</tspan><tspan x="100" dy="16.9">Christopher and Lombard troops send to aid him by king</tspan><tspan x="100" dy="16.9">Desiderius.</tspan></text>
   
-  <text x="410" y="247.39999999999998" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#5a6280" letter-spacing="1.5">via wikipedia-en · Wikipedia On This Day</text>
+  <text x="410" y="281.2" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#5a6280" letter-spacing="1.5">via wikipedia-en · Wikipedia On This Day</text>
 </svg>
