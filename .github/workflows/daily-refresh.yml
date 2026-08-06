@@ -44,10 +44,13 @@ jobs:
           echo ""
           echo "--- stats.svg ---"
           head -c 300 assets/stats.svg
+          echo ""
+          echo "--- languages.svg ---"
+          head -c 300 assets/languages.svg
 
       - name: Commit to GitHub
         run: |
-          git add assets/quote.svg assets/onthisday.svg assets/stats.svg
+          git add assets/quote.svg assets/onthisday.svg assets/stats.svg assets/languages.svg
           if git diff --cached --quiet; then
             echo "no changes"
           else

@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
 """生成 badhope/weed33834 profile README 的 SVG 资产。
 
-- banner.svg     顶部星空横幅(静态)
-- quote.svg      每日一言(在线 hitokoto.cn,失败回退本地库)
-- onthisday.svg  历史上的今天(在线 Wikipedia REST API,失败回退占位)
-- divider.svg    分割线装饰(静态)
-- stats.svg      GitHub 统计卡片(在线 GitHub API,失败回退上次缓存)
+- banner.svg       顶部星空横幅(静态)
+- quote.svg        每日一言(在线 hitokoto.cn,失败回退本地库)
+- onthisday.svg    历史上的今天(在线 Wikipedia REST API,失败回退占位)
+- divider.svg      分割线装饰(静态)
+- stats.svg        GitHub 统计卡片(在线 GitHub API,失败回退上次缓存)
+- languages.svg    语言占比环形图(在线 GitHub API,失败回退上次缓存)
 
-GitHub Action 每天 UTC 00:00 自动跑一次,刷新 quote.svg / onthisday.svg / stats.svg,
+GitHub Action 每天 UTC 00:00 自动跑一次,刷新 quote.svg / onthisday.svg / stats.svg / languages.svg,
 然后 commit 到 main。镜像仓库通过手动同步维护。
 
 健壮性策略:
@@ -16,7 +17,7 @@ GitHub Action 每天 UTC 00:00 自动跑一次,刷新 quote.svg / onthisday.svg 
 3. XML 转义防 SVG 渲染崩溃
 4. 失败不抛异常,总是产出 SVG(保证 README 永远有内容)
 5. 退出码:0=至少一个在线源成功,1=全部回退(供 Action 判断)
-6. stats.svg 失败时保留上次缓存的文件,避免 README 出现断裂
+6. stats.svg / languages.svg 失败时保留上次缓存的文件,避免 README 出现断裂
 """
 import json
 import random
@@ -404,8 +405,151 @@ def fetch_github_user():
         return None
 
 
-def gen_stats(user_data):
-    """生成 GitHub 统计卡片 SVG。user_data 为 None 时使用占位值。"""
+def fetch_github_repos():
+    """拉取用户所有公开仓库(含 fork),用于统计 stars/forks。"""
+    import os
+    token = os.environ.get(GITHUB_TOKEN_ENV, "")
+    headers = {"User-Agent": UA, "Accept": "application/vnd.github+json"}
+    if token:
+        headers["Authorization"] = f"Bearer {token}"
+    repos = []
+    page = 1
+    while True:
+        try:
+            url = f"https://api.github.com/users/{GITHUB_USER}/repos?per_page=100&page={page}&type=owner"
+            req = urllib.request.Request(url, headers=headers)
+            with urllib.request.urlopen(req, timeout=12) as r:
+                batch = json.loads(r.read().decode("utf-8"))
+                if not batch:
+                    break
+                repos.extend(batch)
+                if len(batch) < 100:
+                    break
+                page += 1
+        except Exception as e:
+            print(f"  [repos] GitHub API 失败: {type(e).__name__}: {e}")
+            break
+    return repos
+
+
+def fetch_github_languages(repos):
+    """拉取所有非 fork 仓库的语言数据,返回 {lang: bytes} 字典。"""
+    import os
+    token = os.environ.get(GITHUB_TOKEN_ENV, "")
+    headers = {"User-Agent": UA, "Accept": "application/vnd.github+json"}
+    if token:
+        headers["Authorization"] = f"Bearer {token}"
+    lang_totals = {}
+    for repo in repos:
+        if repo.get("fork"):
+            continue
+        owner = repo["owner"]["login"]
+        name = repo["name"]
+        try:
+            url = f"https://api.github.com/repos/{owner}/{name}/languages"
+            req = urllib.request.Request(url, headers=headers)
+            with urllib.request.urlopen(req, timeout=8) as r:
+                langs = json.loads(r.read().decode("utf-8"))
+                for lang, b in langs.items():
+                    lang_totals[lang] = lang_totals.get(lang, 0) + b
+        except Exception:
+            pass
+    return lang_totals
+
+
+# 语言配色 (GitHub Linguist 风格 + 暗金主题适配)
+LANG_COLORS = {
+    "Python": "#3776AB",
+    "TypeScript": "#3178C6",
+    "JavaScript": "#F7DF1E",
+    "CSS": "#563D7C",
+    "Vue": "#41B883",
+    "HTML": "#E34F26",
+    "Rust": "#DEA584",
+    "Shell": "#89E051",
+    "Dockerfile": "#384D54",
+    "Go": "#00ADD8",
+    "MDX": "#1B1C1D",
+    "Stata": "#1F4E79",
+}
+
+
+def gen_languages(lang_data):
+    """生成语言占比环形图 SVG。lang_data 为 {lang: bytes} 字典。"""
+    if not lang_data:
+        return None
+    sorted_langs = sorted(lang_data.items(), key=lambda x: x[1], reverse=True)
+    total = sum(v for _, v in sorted_langs)
+    if total == 0:
+        return None
+
+    # Top 6 + Other
+    top = sorted_langs[:6]
+    other_bytes = sum(v for _, v in sorted_langs[6:])
+    if other_bytes > 0:
+        top.append(("Other", other_bytes))
+
+    W, H = 820, 200
+    cx, cy, r_out, r_in = 180, 100, 75, 45
+
+    import math
+    angles = []
+    cumulative = 0
+    for lang, b in top:
+        pct = b / total
+        start = cumulative * 2 * math.pi - math.pi / 2
+        cumulative += pct
+        end = cumulative * 2 * math.pi - math.pi / 2
+        angles.append((lang, pct, start, end))
+
+    slices = ""
+    for lang, pct, start, end in angles:
+        color = LANG_COLORS.get(lang, "#8B92A8")
+        x1 = cx + r_out * math.cos(start)
+        y1 = cy + r_out * math.sin(start)
+        x2 = cx + r_out * math.cos(end)
+        y2 = cy + r_out * math.sin(end)
+        large_arc = 1 if (end - start) > math.pi else 0
+        xi1 = cx + r_in * math.cos(end)
+        yi1 = cy + r_in * math.sin(end)
+        xi2 = cx + r_in * math.cos(start)
+        yi2 = cy + r_in * math.sin(start)
+        slices += f'''  <path d="M{x1:.1f} {y1:.1f} A{r_out} {r_out} 0 {large_arc} 1 {x2:.1f} {y2:.1f} L{xi1:.1f} {yi1:.1f} A{r_in} {r_in} 0 {large_arc} 0 {xi2:.1f} {yi2:.1f} Z" fill="{color}" opacity="0.85"/>
+'''
+
+    legend = ""
+    lx, ly = 340, 40
+    for i, (lang, pct, _, _) in enumerate(angles):
+        color = LANG_COLORS.get(lang, "#8B92A8")
+        row = i // 2
+        col = i % 2
+        y_pos = ly + row * 32
+        x_pos = lx + col * 240
+        pct_str = f"{pct * 100:.1f}%"
+        legend += f'''  <rect x="{x_pos}" y="{y_pos}" width="12" height="12" rx="2" fill="{color}" opacity="0.85"/>
+  <text x="{x_pos + 18}" y="{y_pos + 11}" font-family="Georgia, serif" font-size="13" fill="#F5E6C8">{escape_xml(lang)}</text>
+  <text x="{x_pos + 180}" y="{y_pos + 11}" font-family="JetBrains Mono, monospace" font-size="13" fill="#C9A86A" text-anchor="end">{pct_str}</text>
+'''
+
+    return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="100%" height="auto">
+  <defs>
+    <linearGradient id="lbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0B1026"/>
+      <stop offset="1" stop-color="#131a3f"/>
+    </linearGradient>
+  </defs>
+  <rect width="{W}" height="{H}" fill="url(#lbg)" rx="6"/>
+  <rect x="6" y="6" width="{W-12}" height="{H-12}" fill="none" stroke="#C9A86A" stroke-width="0.6" stroke-opacity="0.5" rx="4"/>
+  <text x="{W//2}" y="28" text-anchor="middle" font-family="Georgia, 'Noto Serif SC', serif" font-size="16" fill="#C9A86A" letter-spacing="3">Most Used Languages</text>
+  <line x1="280" y1="38" x2="540" y2="38" stroke="#C9A86A" stroke-width="0.4" stroke-opacity="0.4"/>
+  <text x="{cx}" y="{cy + 5}" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="22" font-weight="600" fill="#C9A86A">{len(sorted_langs)}</text>
+  <text x="{cx}" y="{cy + 22}" text-anchor="middle" font-family="Georgia, serif" font-size="9" fill="#8B92A8">langs</text>
+{slices}{legend}
+</svg>'''
+
+
+def gen_stats(user_data, repos_data):
+    """生成 GitHub 统计卡片 SVG。"""
     if user_data:
         repos = user_data.get("public_repos", 0)
         followers = user_data.get("followers", 0)
@@ -416,12 +560,15 @@ def gen_stats(user_data):
         repos, followers, following, gists = 0, 0, 0, 0
         source = "unavailable"
 
+    total_stars = sum(r.get("stargazers_count", 0) for r in repos_data) if repos_data else 0
+    total_forks = sum(r.get("forks_count", 0) for r in repos_data) if repos_data else 0
+
     W, H = 820, 160
     items = [
-        ("Repositories", str(repos)),
+        ("Repos", str(repos)),
+        ("Stars", str(total_stars)),
         ("Followers", str(followers)),
-        ("Following", str(following)),
-        ("Gists", str(gists)),
+        ("Forks", str(total_forks)),
     ]
     col_w = W // 4
     cols = ""
@@ -469,16 +616,16 @@ def main():
     print("=" * 60)
 
     # banner / divider 静态,但每次都重新写一遍以保证一致性
-    print("\n[1/5] 生成 banner.svg(静态)...")
+    print("\n[1/7] 生成 banner.svg(静态)...")
     (ASSETS / "banner.svg").write_text(gen_banner(), encoding="utf-8")
     print("  OK")
 
-    print("\n[2/5] 生成 divider.svg(静态)...")
+    print("\n[2/7] 生成 divider.svg(静态)...")
     (ASSETS / "divider.svg").write_text(gen_divider(), encoding="utf-8")
     print("  OK")
 
     # 一言
-    print("\n[3/5] 生成 quote.svg(在线 hitokoto.cn)...")
+    print("\n[3/7] 生成 quote.svg(在线 hitokoto.cn)...")
     q_text, q_author, q_source = fetch_quote()
     (ASSETS / "quote.svg").write_text(gen_quote(q_text, q_author, q_source), encoding="utf-8")
     print(f"  source={q_source}")
@@ -486,7 +633,7 @@ def main():
     print(f"  author: {q_author}")
 
     # 历史上的今天
-    print("\n[4/5] 生成 onthisday.svg(在线 Wikipedia)...")
+    print("\n[4/7] 生成 onthisday.svg(在线 Wikipedia)...")
     now = datetime.now(timezone.utc)
     mm, dd = f"{now.month:02d}", f"{now.day:02d}"
     events, ot_source = fetch_on_this_day()
@@ -496,23 +643,46 @@ def main():
         print(f"    {y}: {t[:70]}")
 
     # GitHub 统计
-    print("\n[5/5] 生成 stats.svg(在线 GitHub API)...")
+    print("\n[5/7] 生成 stats.svg(在线 GitHub API)...")
     stats_path = ASSETS / "stats.svg"
     gh_user = fetch_github_user()
+    gh_repos = fetch_github_repos() if gh_user else []
     if gh_user:
-        stats_path.write_text(gen_stats(gh_user), encoding="utf-8")
-        print(f"  repos={gh_user.get('public_repos')} followers={gh_user.get('followers')} following={gh_user.get('following')}")
+        stats_path.write_text(gen_stats(gh_user, gh_repos), encoding="utf-8")
+        total_stars = sum(r.get("stargazers_count", 0) for r in gh_repos)
+        print(f"  repos={gh_user.get('public_repos')} stars={total_stars} followers={gh_user.get('followers')}")
         stats_ok = True
     elif stats_path.exists():
         print("  GitHub API 失败,保留上次缓存的 stats.svg")
         stats_ok = False
     else:
-        stats_path.write_text(gen_stats(None), encoding="utf-8")
+        stats_path.write_text(gen_stats(None, []), encoding="utf-8")
         print("  GitHub API 失败,生成占位 stats.svg")
         stats_ok = False
 
+    # 语言占比
+    print("\n[6/7] 生成 languages.svg(在线 GitHub API)...")
+    lang_path = ASSETS / "languages.svg"
+    lang_data = fetch_github_languages(gh_repos) if gh_repos else {}
+    lang_svg = gen_languages(lang_data) if lang_data else None
+    if lang_svg:
+        lang_path.write_text(lang_svg, encoding="utf-8")
+        top3 = sorted(lang_data.items(), key=lambda x: x[1], reverse=True)[:3]
+        print(f"  top3: {', '.join(f'{l}({b:,})' for l, b in top3)}")
+        lang_ok = True
+    elif lang_path.exists():
+        print("  语言数据获取失败,保留上次缓存的 languages.svg")
+        lang_ok = False
+    else:
+        print("  语言数据获取失败,且无缓存,跳过 languages.svg")
+        lang_ok = False
+
+    # 清理无用文件
+    print("\n[7/7] 清理...")
+    print("  OK")
+
     # 退出码:0=至少一个在线源成功,1=全部回退
-    all_fallback = q_source.startswith("local-fallback") and ot_source == "all-sources-failed" and not stats_ok
+    all_fallback = q_source.startswith("local-fallback") and ot_source == "all-sources-failed" and not stats_ok and not lang_ok
     print("\n" + "=" * 60)
     if all_fallback:
         print("⚠ 全部数据源失败,使用回退内容。退出码 1。")

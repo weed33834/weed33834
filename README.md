@@ -63,10 +63,35 @@ A developer who turns abstract ideas into tangible interfaces. Focused on full-s
 ## GitHub Stats
 
 <p align="center">
-  <img src="./assets/stats.svg" alt="GitHub Stats" width="560" />
+  <img src="./assets/stats.svg" alt="GitHub Stats" width="720" />
 </p>
 
-<p align="center"><sub>Updated daily at 00:00 UTC via GitHub Action · Data source: GitHub API</sub></p>
+<p align="center">
+  <a href="https://github-readme-stats.vercel.app/api?username=weed33834&show_icons=true&hide_border=true&bg_color=0B1026&title_color=C9A86A&text_color=F5E6C8&icon_color=C9A86A&ring_color=C9A86A&card_width=320"><img src="https://github-readme-stats.vercel.app/api?username=weed33834&show_icons=true&hide_border=true&bg_color=0B1026&title_color=C9A86A&text_color=F5E6C8&icon_color=C9A86A&ring_color=C9A86A&card_width=320" alt="GitHub Readme Stats" width="340" /></a>
+  <a href="https://github-readme-stats.vercel.app/api/top-langs/?username=weed33834&hide_border=true&bg_color=0B1026&title_color=C9A86A&text_color=F5E6C8&layout=compact&card_width=320"><img src="https://github-readme-stats.vercel.app/api/top-langs/?username=weed33834&hide_border=true&bg_color=0B1026&title_color=C9A86A&text_color=F5E6C8&layout=compact&card_width=320" alt="Top Languages" width="340" /></a>
+</p>
+
+<p align="center">
+  <a href="https://github-profile-trophy.vercel.app/?username=weed33834&theme=darkhub&no-bg=true&column=7&margin-w=4"><img src="https://github-profile-trophy.vercel.app/?username=weed33834&theme=darkhub&no-bg=true&column=7&margin-w=4" alt="Trophies" /></a>
+</p>
+
+<p align="center">
+  <a href="https://streak-stats.demolab.com/?user=weed33834&hide_border=true&background=0B1026&ring=C9A86A&fire=C9A86A&currStreakLabel=C9A86A&sideLabels=F5E6C8&dates=8B92A8&currStreakNum=F5E6C8"><img src="https://streak-stats.demolab.com/?user=weed33834&hide_border=true&background=0B1026&ring=C9A86A&fire=C9A86A&currStreakLabel=C9A86A&sideLabels=F5E6C8&dates=8B92A8&currStreakNum=F5E6C8" alt="GitHub Streak" width="720" /></a>
+</p>
+
+<p align="center"><sub>Updated daily at 00:00 UTC via GitHub Action · Local SVG always renders; live cards load on GitHub</sub></p>
+
+<p align="center">
+  <img src="./assets/divider.svg" alt="divider" />
+</p>
+
+## Most Used Languages
+
+<p align="center">
+  <img src="./assets/languages.svg" alt="Most Used Languages" width="720" />
+</p>
+
+<p align="center"><sub>Aggregated from all non-fork repositories · Updated daily via GitHub Action</sub></p>
 
 <p align="center">
   <img src="./assets/divider.svg" alt="divider" />
@@ -78,7 +103,7 @@ A developer who turns abstract ideas into tangible interfaces. Focused on full-s
   <img src="./assets/quote.svg" alt="daily quote" width="560" />
 </p>
 
-<p align="center"><sub>Updated daily at 00:00 UTC via GitHub Action · Source: hitokoto.cn (poetry & philosophy)</sub></p>
+<p align="center"><sub>Updated daily at 00:00 UTC via GitHub Action · Source: hitokoto.cn</sub></p>
 
 <p align="center">
   <img src="./assets/divider.svg" alt="divider" />
@@ -90,7 +115,7 @@ A developer who turns abstract ideas into tangible interfaces. Focused on full-s
   <img src="./assets/onthisday.svg" alt="on this day" width="560" />
 </p>
 
-<p align="center"><sub>Updated daily at 00:00 UTC via GitHub Action · Source: Wikipedia On This Day</sub></p>
+<p align="center"><sub>Updated daily at 00:00 UTC via GitHub Action · Source: Wikipedia</sub></p>
 
 <p align="center">
   <img src="./assets/divider.svg" alt="divider" />

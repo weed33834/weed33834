@@ -63,10 +63,35 @@ badhope / weed33834
 ## GitHub 数据
 
 <p align="center">
-  <img src="./assets/stats.svg" alt="GitHub Stats" width="560" />
+  <img src="./assets/stats.svg" alt="GitHub Stats" width="720" />
 </p>
 
-<p align="center"><sub>每天 UTC 00:00 由 GitHub Action 自动更新 · 数据源:GitHub API</sub></p>
+<p align="center">
+  <a href="https://github-readme-stats.vercel.app/api?username=weed33834&show_icons=true&hide_border=true&bg_color=0B1026&title_color=C9A86A&text_color=F5E6C8&icon_color=C9A86A&ring_color=C9A86A&card_width=320"><img src="https://github-readme-stats.vercel.app/api?username=weed33834&show_icons=true&hide_border=true&bg_color=0B1026&title_color=C9A86A&text_color=F5E6C8&icon_color=C9A86A&ring_color=C9A86A&card_width=320" alt="GitHub Readme Stats" width="340" /></a>
+  <a href="https://github-readme-stats.vercel.app/api/top-langs/?username=weed33834&hide_border=true&bg_color=0B1026&title_color=C9A86A&text_color=F5E6C8&layout=compact&card_width=320"><img src="https://github-readme-stats.vercel.app/api/top-langs/?username=weed33834&hide_border=true&bg_color=0B1026&title_color=C9A86A&text_color=F5E6C8&layout=compact&card_width=320" alt="Top Languages" width="340" /></a>
+</p>
+
+<p align="center">
+  <a href="https://github-profile-trophy.vercel.app/?username=weed33834&theme=darkhub&no-bg=true&column=7&margin-w=4"><img src="https://github-profile-trophy.vercel.app/?username=weed33834&theme=darkhub&no-bg=true&column=7&margin-w=4" alt="Trophies" /></a>
+</p>
+
+<p align="center">
+  <a href="https://streak-stats.demolab.com/?user=weed33834&hide_border=true&background=0B1026&ring=C9A86A&fire=C9A86A&currStreakLabel=C9A86A&sideLabels=F5E6C8&dates=8B92A8&currStreakNum=F5E6C8"><img src="https://streak-stats.demolab.com/?user=weed33834&hide_border=true&background=0B1026&ring=C9A86A&fire=C9A86A&currStreakLabel=C9A86A&sideLabels=F5E6C8&dates=8B92A8&currStreakNum=F5E6C8" alt="GitHub Streak" width="720" /></a>
+</p>
+
+<p align="center"><sub>每天 UTC 00:00 由 GitHub Action 自动更新 · 本地 SVG 始终渲染;在线卡片在 GitHub 上加载</sub></p>
+
+<p align="center">
+  <img src="./assets/divider.svg" alt="divider" />
+</p>
+
+## 语言占比
+
+<p align="center">
+  <img src="./assets/languages.svg" alt="Most Used Languages" width="720" />
+</p>
+
+<p align="center"><sub>统计自所有非 fork 仓库 · 每天 UTC 00:00 由 GitHub Action 自动更新</sub></p>
 
 <p align="center">
   <img src="./assets/divider.svg" alt="divider" />
@@ -78,7 +103,7 @@ badhope / weed33834
   <img src="./assets/quote.svg" alt="daily quote" width="560" />
 </p>
 
-<p align="center"><sub>每天 UTC 00:00 由 GitHub Action 自动更新 · 数据源:hitokoto.cn(诗词+哲学)</sub></p>
+<p align="center"><sub>每天 UTC 00:00 由 GitHub Action 自动更新 · 数据源:hitokoto.cn</sub></p>
 
 <p align="center">
   <img src="./assets/divider.svg" alt="divider" />
@@ -90,7 +115,7 @@ badhope / weed33834
   <img src="./assets/onthisday.svg" alt="on this day" width="560" />
 </p>
 
-<p align="center"><sub>每天 UTC 00:00 由 GitHub Action 自动更新 · 数据源:Wikipedia On This Day</sub></p>
+<p align="center"><sub>每天 UTC 00:00 由 GitHub Action 自动更新 · 数据源:Wikipedia</sub></p>
 
 <p align="center">
   <img src="./assets/divider.svg" alt="divider" />
