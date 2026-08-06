@@ -5,8 +5,9 @@
 - quote.svg      每日一言(在线 hitokoto.cn,失败回退本地库)
 - onthisday.svg  历史上的今天(在线 Wikipedia REST API,失败回退占位)
 - divider.svg    分割线装饰(静态)
+- stats.svg      GitHub 统计卡片(在线 GitHub API,失败回退上次缓存)
 
-GitHub Action 每天 UTC 00:00 自动跑一次,刷新 quote.svg / onthisday.svg,
+GitHub Action 每天 UTC 00:00 自动跑一次,刷新 quote.svg / onthisday.svg / stats.svg,
 然后 commit 到 main。镜像仓库通过手动同步维护。
 
 健壮性策略:
@@ -15,6 +16,7 @@ GitHub Action 每天 UTC 00:00 自动跑一次,刷新 quote.svg / onthisday.svg,
 3. XML 转义防 SVG 渲染崩溃
 4. 失败不抛异常,总是产出 SVG(保证 README 永远有内容)
 5. 退出码:0=至少一个在线源成功,1=全部回退(供 Action 判断)
+6. stats.svg 失败时保留上次缓存的文件,避免 README 出现断裂
 """
 import json
 import random
@@ -378,6 +380,72 @@ def gen_onthisday(events, source, mm, dd):
 </svg>'''
 
 
+# ---------- GitHub 统计 ----------
+GITHUB_USER = "weed33834"
+GITHUB_TOKEN_ENV = "GH_STATS_TOKEN"
+
+
+def fetch_github_user():
+    """在线拉取 GitHub 用户公开统计,失败返回 None。"""
+    import os
+    token = os.environ.get(GITHUB_TOKEN_ENV, "")
+    headers = {"User-Agent": UA, "Accept": "application/vnd.github+json"}
+    if token:
+        headers["Authorization"] = f"Bearer {token}"
+    try:
+        req = urllib.request.Request(
+            f"https://api.github.com/users/{GITHUB_USER}",
+            headers=headers,
+        )
+        with urllib.request.urlopen(req, timeout=12) as r:
+            return json.loads(r.read().decode("utf-8"))
+    except Exception as e:
+        print(f"  [stats] GitHub API 失败: {type(e).__name__}: {e}")
+        return None
+
+
+def gen_stats(user_data):
+    """生成 GitHub 统计卡片 SVG。user_data 为 None 时使用占位值。"""
+    if user_data:
+        repos = user_data.get("public_repos", 0)
+        followers = user_data.get("followers", 0)
+        following = user_data.get("following", 0)
+        gists = user_data.get("public_gists", 0)
+        source = "GitHub API"
+    else:
+        repos, followers, following, gists = 0, 0, 0, 0
+        source = "unavailable"
+
+    W, H = 820, 160
+    items = [
+        ("Repositories", str(repos)),
+        ("Followers", str(followers)),
+        ("Following", str(following)),
+        ("Gists", str(gists)),
+    ]
+    col_w = W // 4
+    cols = ""
+    for i, (label, value) in enumerate(items):
+        cx = col_w * i + col_w // 2
+        cols += f'''
+  <text x="{cx}" y="72" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="34" font-weight="600" fill="#C9A86A">{escape_xml(value)}</text>
+  <text x="{cx}" y="100" text-anchor="middle" font-family="Georgia, 'Noto Serif SC', serif" font-size="13" fill="#8B92A8" letter-spacing="1.5">{escape_xml(label)}</text>'''
+
+    return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="100%" height="auto">
+  <defs>
+    <linearGradient id="sbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0B1026"/>
+      <stop offset="1" stop-color="#131a3f"/>
+    </linearGradient>
+  </defs>
+  <rect width="{W}" height="{H}" fill="url(#sbg)" rx="6"/>
+  <rect x="6" y="6" width="{W-12}" height="{H-12}" fill="none" stroke="#C9A86A" stroke-width="0.6" stroke-opacity="0.5" rx="4"/>
+  <text x="410" y="32" text-anchor="middle" font-family="Georgia, 'Noto Serif SC', serif" font-size="16" fill="#C9A86A" letter-spacing="3">GitHub Stats</text>
+  <line x1="300" y1="42" x2="520" y2="42" stroke="#C9A86A" stroke-width="0.4" stroke-opacity="0.4"/>{cols}
+  <text x="410" y="{H-12}" text-anchor="middle" font-family="Georgia, serif" font-size="9" fill="#5a6280" letter-spacing="1">via {escape_xml(source)}</text>
+</svg>'''
+
+
 def gen_divider():
     rng = random.Random(7)
     stars = "".join(
@@ -401,16 +469,16 @@ def main():
     print("=" * 60)
 
     # banner / divider 静态,但每次都重新写一遍以保证一致性
-    print("\n[1/4] 生成 banner.svg(静态)...")
+    print("\n[1/5] 生成 banner.svg(静态)...")
     (ASSETS / "banner.svg").write_text(gen_banner(), encoding="utf-8")
     print("  OK")
 
-    print("\n[2/4] 生成 divider.svg(静态)...")
+    print("\n[2/5] 生成 divider.svg(静态)...")
     (ASSETS / "divider.svg").write_text(gen_divider(), encoding="utf-8")
     print("  OK")
 
     # 一言
-    print("\n[3/4] 生成 quote.svg(在线 hitokoto.cn)...")
+    print("\n[3/5] 生成 quote.svg(在线 hitokoto.cn)...")
     q_text, q_author, q_source = fetch_quote()
     (ASSETS / "quote.svg").write_text(gen_quote(q_text, q_author, q_source), encoding="utf-8")
     print(f"  source={q_source}")
@@ -418,7 +486,7 @@ def main():
     print(f"  author: {q_author}")
 
     # 历史上的今天
-    print("\n[4/4] 生成 onthisday.svg(在线 Wikipedia)...")
+    print("\n[4/5] 生成 onthisday.svg(在线 Wikipedia)...")
     now = datetime.now(timezone.utc)
     mm, dd = f"{now.month:02d}", f"{now.day:02d}"
     events, ot_source = fetch_on_this_day()
@@ -427,8 +495,24 @@ def main():
     for y, t in events:
         print(f"    {y}: {t[:70]}")
 
+    # GitHub 统计
+    print("\n[5/5] 生成 stats.svg(在线 GitHub API)...")
+    stats_path = ASSETS / "stats.svg"
+    gh_user = fetch_github_user()
+    if gh_user:
+        stats_path.write_text(gen_stats(gh_user), encoding="utf-8")
+        print(f"  repos={gh_user.get('public_repos')} followers={gh_user.get('followers')} following={gh_user.get('following')}")
+        stats_ok = True
+    elif stats_path.exists():
+        print("  GitHub API 失败,保留上次缓存的 stats.svg")
+        stats_ok = False
+    else:
+        stats_path.write_text(gen_stats(None), encoding="utf-8")
+        print("  GitHub API 失败,生成占位 stats.svg")
+        stats_ok = False
+
     # 退出码:0=至少一个在线源成功,1=全部回退
-    all_fallback = q_source.startswith("local-fallback") and ot_source == "all-sources-failed"
+    all_fallback = q_source.startswith("local-fallback") and ot_source == "all-sources-failed" and not stats_ok
     print("\n" + "=" * 60)
     if all_fallback:
         print("⚠ 全部数据源失败,使用回退内容。退出码 1。")

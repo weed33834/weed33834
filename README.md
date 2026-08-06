@@ -54,19 +54,19 @@ A developer who turns abstract ideas into tangible interfaces. Focused on full-s
   <a href="https://github.com/weed33834/echo"><img src="https://img.shields.io/badge/⭐_echo-Divination_Engine-C9A86A?style=for-the-badge&logo=github&logoColor=white&labelColor=0B1026" alt="echo" /></a>
 </p>
 
+<p align="center"><sub>nova — AI-powered classroom with real-time interaction · agentvalue — multi-provider LLM agent platform · echo — I-Ching divination engine</sub></p>
+
 <p align="center">
   <img src="./assets/divider.svg" alt="divider" />
 </p>
 
-## Stats Constellation
+## GitHub Stats
 
 <p align="center">
-  <a href="https://github.com/weed33834?tab=repositories"><img src="https://img.shields.io/badge/dynamic/json?url=https://api.github.com/users/weed33834&query=$.public_repos&label=Repos&color=C9A86A&labelColor=0B1026&style=flat-square" alt="repos" /></a>
-  <a href="https://github.com/weed33834?tab=followers"><img src="https://img.shields.io/badge/dynamic/json?url=https://api.github.com/users/weed33834&query=$.followers&label=Followers&color=C9A86A&labelColor=0B1026&style=flat-square" alt="followers" /></a>
-  <a href="https://github.com/weed33834?tab=following"><img src="https://img.shields.io/badge/dynamic/json?url=https://api.github.com/users/weed33834&query=$.following&label=Following&color=C9A86A&labelColor=0B1026&style=flat-square" alt="following" /></a>
-  <br/>
-  <img src="https://streak-stats.demolab.com/?user=weed33834&hide_border=true&background=0B1026&ring=C9A86A&fire=C9A86A&currStreakLabel=C9A86A&sideLabels=C9A86A&dates=F5E6C8" alt="streak" />
+  <img src="./assets/stats.svg" alt="GitHub Stats" width="560" />
 </p>
+
+<p align="center"><sub>Updated daily at 00:00 UTC via GitHub Action · Data source: GitHub API</sub></p>
 
 <p align="center">
   <img src="./assets/divider.svg" alt="divider" />
@@ -101,7 +101,8 @@ A developer who turns abstract ideas into tangible interfaces. Focused on full-s
 <p align="center">
   <a href="https://github.com/weed33834"><img src="https://img.shields.io/badge/GitHub-weed33834-C9A86A?style=flat&logo=github&logoColor=white&labelColor=0B1026" alt="GitHub" /></a>
   <a href="https://gitcode.com/badhope"><img src="https://img.shields.io/badge/GitCode-badhope-C9A86A?style=flat&logo=git&logoColor=white&labelColor=0B1026" alt="GitCode" /></a>
-  <a href="https://github.com/weed33834?tab=repositories"><img src="https://img.shields.io/badge/Repositories-000000?style=flat&logo=github&logoColor=white&labelColor=0B1026" alt="repos" /></a>
+  <a href="https://gitee.com/badhope"><img src="https://img.shields.io/badge/Gitee-badhope-C9A86A?style=flat&logo=git&logoColor=white&labelColor=0B1026" alt="Gitee" /></a>
+  <a href="https://blog.csdn.net/weixin_56622231"><img src="https://img.shields.io/badge/CSDN-Blog-C9A86A?style=flat&logo=bytes&logoColor=white&labelColor=0B1026" alt="CSDN Blog" /></a>
 </p>
 
 <p align="center">
