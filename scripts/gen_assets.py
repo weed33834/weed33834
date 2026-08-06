@@ -547,7 +547,7 @@ def gen_contributions(cc_data):
     MARGIN_L = 50
     MARGIN_T = 40
     MARGIN_R = 16
-    MARGIN_B = 30
+    MARGIN_B = 45
     num_weeks = len(weeks)
     W = MARGIN_L + num_weeks * (CELL + GAP) + MARGIN_R
     H = MARGIN_T + 7 * (CELL + GAP) + MARGIN_B
