@@ -97,6 +97,18 @@ A developer who turns abstract ideas into tangible interfaces. Focused on full-s
   <img src="./assets/divider.svg" alt="divider" />
 </p>
 
+## Contribution Graph
+
+<p align="center">
+  <img src="./assets/contributions.svg" alt="Contribution Graph" width="720" />
+</p>
+
+<p align="center"><sub>Includes commits, PRs, issues, and repository creations · Updated daily via GitHub Action</sub></p>
+
+<p align="center">
+  <img src="./assets/divider.svg" alt="divider" />
+</p>
+
 ## Daily Quote
 
 <p align="center">

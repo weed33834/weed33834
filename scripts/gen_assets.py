@@ -474,6 +474,164 @@ LANG_COLORS = {
 }
 
 
+# ---------- 贡献热力图 ----------
+def fetch_contributions():
+    """通过 GitHub GraphQL API 拉取贡献日历数据。"""
+    import os
+    token = os.environ.get(GITHUB_TOKEN_ENV, "")
+    if not token:
+        print("  [contrib] 无 token,跳过")
+        return None
+    query = """query {
+  user(login: "%s") {
+    contributionsCollection {
+      totalCommitContributions
+      totalPullRequestContributions
+      totalPullRequestReviewContributions
+      totalIssueContributions
+      totalRepositoryContributions
+      contributionCalendar {
+        totalContributions
+        weeks { contributionDays { contributionCount date } }
+      }
+      pullRequests(states: MERGED, first: 10) { totalCount }
+    }
+  }
+}""" % GITHUB_USER
+    headers = {
+        "Authorization": f"bearer {token}",
+        "Content-Type": "application/json",
+        "User-Agent": UA,
+    }
+    try:
+        body = json.dumps({"query": query}).encode("utf-8")
+        req = urllib.request.Request(
+            "https://api.github.com/graphql",
+            data=body,
+            headers=headers,
+        )
+        with urllib.request.urlopen(req, timeout=15) as r:
+            data = json.loads(r.read().decode("utf-8"))
+        cc = data["data"]["user"]["contributionsCollection"]
+        return cc
+    except Exception as e:
+        print(f"  [contrib] GraphQL 失败: {type(e).__name__}: {e}")
+        return None
+
+
+def gen_contributions(cc_data):
+    """生成贡献热力图 SVG。"""
+    if not cc_data:
+        return None
+    cal = cc_data.get("contributionCalendar", {})
+    weeks = cal.get("weeks", [])
+    total = cal.get("totalContributions", 0)
+    if not weeks:
+        return None
+
+    commits = cc_data.get("totalCommitContributions", 0)
+    prs = cc_data.get("totalPullRequestContributions", 0)
+    pr_reviews = cc_data.get("totalPullRequestReviewContributions", 0)
+    issues = cc_data.get("totalIssueContributions", 0)
+    new_repos = cc_data.get("totalRepositoryContributions", 0)
+    merged_prs = cc_data.get("pullRequests", {}).get("totalCount", 0)
+
+    max_count = 1
+    for w in weeks:
+        for day in w["contributionDays"]:
+            if day["contributionCount"] > max_count:
+                max_count = day["contributionCount"]
+
+    CELL = 11
+    GAP = 2
+    MARGIN_L = 50
+    MARGIN_T = 40
+    MARGIN_R = 16
+    MARGIN_B = 30
+    num_weeks = len(weeks)
+    W = MARGIN_L + num_weeks * (CELL + GAP) + MARGIN_R
+    H = MARGIN_T + 7 * (CELL + GAP) + MARGIN_B
+
+    # Dark gold palette: 5 levels
+    LEVEL_COLORS = ["#161b2e", "#2a3117", "#5c4a1a", "#8a6e28", "#C9A86A"]
+
+    def level_for(count):
+        if count == 0:
+            return 0
+        ratio = count / max_count
+        if ratio <= 0.25:
+            return 1
+        elif ratio <= 0.5:
+            return 2
+        elif ratio <= 0.75:
+            return 3
+        return 4
+
+    cells = ""
+    for wi, week in enumerate(weeks):
+        x = MARGIN_L + wi * (CELL + GAP)
+        for di, day in enumerate(week["contributionDays"]):
+            y = MARGIN_T + di * (CELL + GAP)
+            lvl = level_for(day["contributionCount"])
+            color = LEVEL_COLORS[lvl]
+            cells += f'  <rect x="{x}" y="{y}" width="{CELL}" height="{CELL}" rx="2" fill="{color}"/>\n'
+
+    # Month labels
+    month_labels = ""
+    months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+    last_month = -1
+    for wi, week in enumerate(weeks):
+        for day in week["contributionDays"]:
+            date_str = day["date"]
+            month = int(date_str[5:7])
+            if month != last_month and day["contributionCount"] is not None:
+                x = MARGIN_L + wi * (CELL + GAP)
+                month_labels += f'  <text x="{x}" y="{MARGIN_T - 8}" font-family="Georgia, serif" font-size="9" fill="#8B92A8">{months[month - 1]}</text>\n'
+                last_month = month
+            break
+
+    # Day labels (Mon/Wed/Fri)
+    day_labels = ""
+    for di, label in [(0, ""), (1, "Mon"), (2, ""), (3, "Wed"), (4, ""), (5, "Fri"), (6, "")]:
+        if label:
+            y = MARGIN_T + di * (CELL + GAP) + CELL - 1
+            day_labels += f'  <text x="{MARGIN_L - 6}" y="{y}" text-anchor="end" font-family="Georgia, serif" font-size="8" fill="#8B92A8">{label}</text>\n'
+
+    # Stats row at bottom
+    stats_y = MARGIN_T + 7 * (CELL + GAP) + 18
+    stats_items = [
+        f"Total: {total}",
+        f"Commits: {commits}",
+        f"PRs: {prs}",
+        f"Merged: {merged_prs}",
+        f"Issues: {issues}",
+        f"Repos: {new_repos}",
+    ]
+    stats_text = "  ".join(stats_items)
+
+    # Legend
+    legend_x = MARGIN_L
+    legend_y = stats_y + 12
+    legend = f'  <text x="{legend_x}" y="{legend_y}" font-family="Georgia, serif" font-size="9" fill="#8B92A8">Less</text>\n'
+    for i in range(5):
+        lx = legend_x + 30 + i * (CELL + GAP)
+        legend += f'  <rect x="{lx}" y="{legend_y - 8}" width="{CELL}" height="{CELL}" rx="2" fill="{LEVEL_COLORS[i]}"/>\n'
+    legend += f'  <text x="{legend_x + 30 + 5 * (CELL + GAP) + 4}" y="{legend_y}" font-family="Georgia, serif" font-size="9" fill="#8B92A8">More</text>\n'
+
+    return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="100%" height="auto">
+  <defs>
+    <linearGradient id="cbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0B1026"/>
+      <stop offset="1" stop-color="#131a3f"/>
+    </linearGradient>
+  </defs>
+  <rect width="{W}" height="{H}" fill="url(#cbg)" rx="6"/>
+  <rect x="6" y="6" width="{W-12}" height="{H-12}" fill="none" stroke="#C9A86A" stroke-width="0.6" stroke-opacity="0.5" rx="4"/>
+  <text x="{W//2}" y="22" text-anchor="middle" font-family="Georgia, 'Noto Serif SC', serif" font-size="14" fill="#C9A86A" letter-spacing="3">{total} contributions in the last year</text>
+{month_labels}{day_labels}{cells}  <text x="{W//2}" y="{stats_y}" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#F5E6C8">{escape_xml(stats_text)}</text>
+{legend}</svg>'''
+
+
 def gen_languages(lang_data):
     """生成语言占比环形图 SVG。lang_data 为 {lang: bytes} 字典。"""
     if not lang_data:
@@ -643,7 +801,7 @@ def main():
         print(f"    {y}: {t[:70]}")
 
     # GitHub 统计
-    print("\n[5/7] 生成 stats.svg(在线 GitHub API)...")
+    print("\n[5/8] 生成 stats.svg(在线 GitHub API)...")
     stats_path = ASSETS / "stats.svg"
     gh_user = fetch_github_user()
     gh_repos = fetch_github_repos() if gh_user else []
@@ -661,7 +819,7 @@ def main():
         stats_ok = False
 
     # 语言占比
-    print("\n[6/7] 生成 languages.svg(在线 GitHub API)...")
+    print("\n[6/8] 生成 languages.svg(在线 GitHub API)...")
     lang_path = ASSETS / "languages.svg"
     lang_data = fetch_github_languages(gh_repos) if gh_repos else {}
     lang_svg = gen_languages(lang_data) if lang_data else None
@@ -677,12 +835,30 @@ def main():
         print("  语言数据获取失败,且无缓存,跳过 languages.svg")
         lang_ok = False
 
+    # 贡献热力图
+    print("\n[7/8] 生成 contributions.svg(在线 GitHub GraphQL API)...")
+    contrib_path = ASSETS / "contributions.svg"
+    cc_data = fetch_contributions()
+    contrib_svg = gen_contributions(cc_data) if cc_data else None
+    if contrib_svg and cc_data:
+        contrib_path.write_text(contrib_svg, encoding="utf-8")
+        total_contrib = cc_data.get("contributionCalendar", {}).get("totalContributions", 0)
+        commits = cc_data.get("totalCommitContributions", 0)
+        merged = cc_data.get("pullRequests", {}).get("totalCount", 0)
+        print(f"  total={total_contrib} commits={commits} merged_prs={merged}")
+        contrib_ok = True
+    elif contrib_path.exists():
+        print("  贡献数据获取失败,保留上次缓存的 contributions.svg")
+        contrib_ok = False
+    else:
+        print("  贡献数据获取失败,且无缓存,跳过 contributions.svg")
+        contrib_ok = False
     # 清理无用文件
-    print("\n[7/7] 清理...")
+    print("\n[8/8] 清理...")
     print("  OK")
 
     # 退出码:0=至少一个在线源成功,1=全部回退
-    all_fallback = q_source.startswith("local-fallback") and ot_source == "all-sources-failed" and not stats_ok and not lang_ok
+    all_fallback = q_source.startswith("local-fallback") and ot_source == "all-sources-failed" and not stats_ok and not lang_ok and not contrib_ok
     print("\n" + "=" * 60)
     if all_fallback:
         print("⚠ 全部数据源失败,使用回退内容。退出码 1。")

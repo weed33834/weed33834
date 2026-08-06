@@ -97,6 +97,18 @@ badhope / weed33834
   <img src="./assets/divider.svg" alt="divider" />
 </p>
 
+## 贡献热力图
+
+<p align="center">
+  <img src="./assets/contributions.svg" alt="Contribution Graph" width="720" />
+</p>
+
+<p align="center"><sub>包含提交、PR、Issue 和仓库创建 · 每天 UTC 00:00 由 GitHub Action 自动更新</sub></p>
+
+<p align="center">
+  <img src="./assets/divider.svg" alt="divider" />
+</p>
+
 ## 每日一言
 
 <p align="center">

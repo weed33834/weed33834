@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 92 161" width="100%" height="auto">
+  <defs>
+    <linearGradient id="cbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0B1026"/>
+      <stop offset="1" stop-color="#131a3f"/>
+    </linearGradient>
+  </defs>
+  <rect width="92" height="161" fill="url(#cbg)" rx="6"/>
+  <rect x="6" y="6" width="80" height="149" fill="none" stroke="#C9A86A" stroke-width="0.6" stroke-opacity="0.5" rx="4"/>
+  <text x="46" y="22" text-anchor="middle" font-family="Georgia, 'Noto Serif SC', serif" font-size="14" fill="#C9A86A" letter-spacing="3">172 contributions in the last year</text>
+  <text x="50" y="32" font-family="Georgia, serif" font-size="9" fill="#8B92A8">Aug</text>
+  <text x="44" y="63" text-anchor="end" font-family="Georgia, serif" font-size="8" fill="#8B92A8">Mon</text>
+  <text x="44" y="89" text-anchor="end" font-family="Georgia, serif" font-size="8" fill="#8B92A8">Wed</text>
+  <text x="44" y="115" text-anchor="end" font-family="Georgia, serif" font-size="8" fill="#8B92A8">Fri</text>
+  <rect x="50" y="40" width="11" height="11" rx="2" fill="#C9A86A"/>
+  <rect x="50" y="53" width="11" height="11" rx="2" fill="#5c4a1a"/>
+  <rect x="50" y="66" width="11" height="11" rx="2" fill="#2a3117"/>
+  <rect x="50" y="79" width="11" height="11" rx="2" fill="#161b2e"/>
+  <rect x="50" y="92" width="11" height="11" rx="2" fill="#2a3117"/>
+  <rect x="50" y="105" width="11" height="11" rx="2" fill="#C9A86A"/>
+  <rect x="50" y="118" width="11" height="11" rx="2" fill="#161b2e"/>
+  <rect x="63" y="40" width="11" height="11" rx="2" fill="#C9A86A"/>
+  <rect x="63" y="53" width="11" height="11" rx="2" fill="#161b2e"/>
+  <rect x="63" y="66" width="11" height="11" rx="2" fill="#161b2e"/>
+  <rect x="63" y="79" width="11" height="11" rx="2" fill="#2a3117"/>
+  <rect x="63" y="92" width="11" height="11" rx="2" fill="#161b2e"/>
+  <rect x="63" y="105" width="11" height="11" rx="2" fill="#161b2e"/>
+  <rect x="63" y="118" width="11" height="11" rx="2" fill="#2a3117"/>
+  <text x="46" y="149" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="#F5E6C8">Total: 172  Commits: 107  PRs: 10  Merged: 3  Issues: 6  Repos: 27</text>
+  <text x="50" y="161" font-family="Georgia, serif" font-size="9" fill="#8B92A8">Less</text>
+  <rect x="80" y="153" width="11" height="11" rx="2" fill="#161b2e"/>
+  <rect x="93" y="153" width="11" height="11" rx="2" fill="#2a3117"/>
+  <rect x="106" y="153" width="11" height="11" rx="2" fill="#5c4a1a"/>
+  <rect x="119" y="153" width="11" height="11" rx="2" fill="#8a6e28"/>
+  <rect x="132" y="153" width="11" height="11" rx="2" fill="#C9A86A"/>
+  <text x="149" y="161" font-family="Georgia, serif" font-size="9" fill="#8B92A8">More</text>
+</svg>

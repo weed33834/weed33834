@@ -97,6 +97,18 @@ badhope / weed33834
   <img src="./assets/divider.svg" alt="divider" />
 </p>
 
+## コントリビューション
+
+<p align="center">
+  <img src="./assets/contributions.svg" alt="Contribution Graph" width="720" />
+</p>
+
+<p align="center"><sub>コミット、PR、Issue、リポジトリ作成を含む · 毎日 UTC 00:00 に GitHub Action で自動更新</sub></p>
+
+<p align="center">
+  <img src="./assets/divider.svg" alt="divider" />
+</p>
+
 ## 毎日の一言
 
 <p align="center">
