@@ -1,20 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 274.3" width="100%" height="auto">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 308.09999999999997" width="100%" height="auto">
   <defs>
     <linearGradient id="obg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#0B1026"/>
       <stop offset="1" stop-color="#131a3f"/>
     </linearGradient>
   </defs>
-  <rect width="820" height="274.3" fill="url(#obg)" rx="6"/>
-  <rect x="6" y="6" width="808" height="262.3" fill="none" stroke="#C9A86A" stroke-width="0.6" stroke-opacity="0.5" rx="4"/>
-  <text x="410" y="40" text-anchor="middle" font-family="Georgia, 'Noto Serif SC', serif" font-size="20" fill="#C9A86A" letter-spacing="3">历史上的今天 · 08/07</text>
+  <rect width="820" height="308.09999999999997" fill="url(#obg)" rx="6"/>
+  <rect x="6" y="6" width="808" height="296.09999999999997" fill="none" stroke="#C9A86A" stroke-width="0.6" stroke-opacity="0.5" rx="4"/>
+  <text x="410" y="40" text-anchor="middle" font-family="Georgia, 'Noto Serif SC', serif" font-size="20" fill="#C9A86A" letter-spacing="3">历史上的今天 · 08/08</text>
   <line x1="280" y1="52" x2="540" y2="52" stroke="#C9A86A" stroke-width="0.4" stroke-opacity="0.4"/>
-  <text x="40" y="78" font-family="JetBrains Mono, monospace" font-size="15" fill="#C9A86A" font-weight="500">461</text>
-  <text x="100" y="78" font-family="Georgia, 'Noto Serif SC', serif" font-size="13" fill="#F5E6C8"><tspan x="100" dy="0.0">Roman Emperor Majorian is beheaded near the river Iria</tspan><tspan x="100" dy="16.9">in north-west Italy following his arrest and deposition</tspan><tspan x="100" dy="16.9">by the...</tspan></text>
-  <text x="40" y="144.7" font-family="JetBrains Mono, monospace" font-size="15" fill="#C9A86A" font-weight="500">610</text>
-  <text x="100" y="144.7" font-family="Georgia, 'Noto Serif SC', serif" font-size="13" fill="#F5E6C8"><tspan x="100" dy="0.0">Byzantine–Sasanian War of 602–628: Sassanid troops</tspan><tspan x="100" dy="16.9">under general Shahrbaraz conquer the town of Zenobia.</tspan></text>
-  <text x="40" y="194.5" font-family="JetBrains Mono, monospace" font-size="15" fill="#C9A86A" font-weight="500">626</text>
-  <text x="100" y="194.5" font-family="Georgia, 'Noto Serif SC', serif" font-size="13" fill="#F5E6C8"><tspan x="100" dy="0.0">The Avar and Slav armies leave the siege of</tspan><tspan x="100" dy="16.9">Constantinople.</tspan></text>
+  <text x="40" y="78" font-family="JetBrains Mono, monospace" font-size="15" fill="#C9A86A" font-weight="500">-685</text>
+  <text x="100" y="78" font-family="Georgia, 'Noto Serif SC', serif" font-size="13" fill="#F5E6C8"><tspan x="100" dy="0.0">Spring and Autumn period: Battle of Qianshi: Upon the</tspan><tspan x="100" dy="16.9">death of the previous Duke of Qi, Gongsun Wuzhi, Duke</tspan><tspan x="100" dy="16.9">Zhuang of...</tspan></text>
+  <text x="40" y="144.7" font-family="JetBrains Mono, monospace" font-size="15" fill="#C9A86A" font-weight="500">870</text>
+  <text x="100" y="144.7" font-family="Georgia, 'Noto Serif SC', serif" font-size="13" fill="#F5E6C8"><tspan x="100" dy="0.0">Treaty of Meerssen: King Louis the German and his</tspan><tspan x="100" dy="16.9">half-brother Charles the Bald partition the Middle</tspan><tspan x="100" dy="16.9">Frankish Kingdom...</tspan></text>
+  <text x="40" y="211.39999999999998" font-family="JetBrains Mono, monospace" font-size="15" fill="#C9A86A" font-weight="500">1164</text>
+  <text x="100" y="211.39999999999998" font-family="Georgia, 'Noto Serif SC', serif" font-size="13" fill="#F5E6C8"><tspan x="100" dy="0.0">Hassan II of Alamut proclaims the qiyāma, according to</tspan><tspan x="100" dy="16.9">which Ismaili practice would change from traditional</tspan><tspan x="100" dy="16.9">islamic p...</tspan></text>
   
-  <text x="410" y="264.3" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#5a6280" letter-spacing="1.5">via wikipedia-en · Wikipedia On This Day</text>
+  <text x="410" y="298.09999999999997" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#5a6280" letter-spacing="1.5">via wikipedia-en · Wikipedia On This Day</text>
 </svg>
