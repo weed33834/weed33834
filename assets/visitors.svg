@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 120" width="100%" height="auto">
+  <defs>
+    <linearGradient id="vb" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0B1026"/>
+      <stop offset="1" stop-color="#131a3f"/>
+    </linearGradient>
+  </defs>
+  <rect width="820" height="120" fill="url(#vb)" rx="10"/>
+  <rect x="6" y="6" width="808" height="108" fill="none" stroke="#C9A86A" stroke-width="0.6" stroke-opacity="0.45" rx="8"/>
+  <text x="60" y="70.0" font-family="Georgia, serif" font-size="30" fill="#C9A86A">✦</text>
+  <text x="110" y="58.0" font-family="Georgia, 'Noto Serif SC', serif" font-size="17" fill="#8B92A8" letter-spacing="2">PROFILE VISITS</text>
+  <text x="110" y="84.0" font-family="JetBrains Mono, monospace" font-size="24" fill="#F5E6C8">—</text>
+  <text x="760" y="70.0" text-anchor="end" font-family="Georgia, serif" font-size="12" fill="#5a6280">THANKS FOR STOPPING BY</text>
+</svg>

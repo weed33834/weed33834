@@ -11,31 +11,31 @@
   <line x1="280" y1="38" x2="540" y2="38" stroke="#C9A86A" stroke-width="0.4" stroke-opacity="0.4"/>
   <text x="180" y="105" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="22" font-weight="600" fill="#C9A86A">16</text>
   <text x="180" y="122" text-anchor="middle" font-family="Georgia, serif" font-size="9" fill="#8B92A8">langs</text>
-  <path d="M180.0 25.0 A75 75 0 1 1 159.7 172.2 L167.8 143.3 A45 45 0 1 0 180.0 55.0 Z" fill="#3776AB" opacity="0.85"/>
-  <path d="M159.7 172.2 A75 75 0 0 1 115.1 62.5 L141.0 77.5 A45 45 0 0 0 167.8 143.3 Z" fill="#F7DF1E" opacity="0.85"/>
-  <path d="M115.1 62.5 A75 75 0 0 1 151.4 30.7 L162.8 58.4 A45 45 0 0 0 141.0 77.5 Z" fill="#3178C6" opacity="0.85"/>
-  <path d="M151.4 30.7 A75 75 0 0 1 163.3 26.9 L170.0 56.1 A45 45 0 0 0 162.8 58.4 Z" fill="#41B883" opacity="0.85"/>
-  <path d="M163.3 26.9 A75 75 0 0 1 173.7 25.3 L176.2 55.2 A45 45 0 0 0 170.0 56.1 Z" fill="#563D7C" opacity="0.85"/>
-  <path d="M173.7 25.3 A75 75 0 0 1 177.7 25.0 L178.6 55.0 A45 45 0 0 0 176.2 55.2 Z" fill="#E34F26" opacity="0.85"/>
-  <path d="M177.7 25.0 A75 75 0 0 1 180.0 25.0 L180.0 55.0 A45 45 0 0 0 178.6 55.0 Z" fill="#8B92A8" opacity="0.85"/>
+  <path d="M180.0 25.0 A75 75 0 1 1 152.2 169.7 L163.3 141.8 A45 45 0 1 0 180.0 55.0 Z" fill="#3776AB" opacity="0.85"/>
+  <path d="M152.2 169.7 A75 75 0 0 1 124.0 50.1 L146.4 70.0 A45 45 0 0 0 163.3 141.8 Z" fill="#F7DF1E" opacity="0.85"/>
+  <path d="M124.0 50.1 A75 75 0 0 1 150.4 31.1 L162.2 58.7 A45 45 0 0 0 146.4 70.0 Z" fill="#3178C6" opacity="0.85"/>
+  <path d="M150.4 31.1 A75 75 0 0 1 162.8 27.0 L169.7 56.2 A45 45 0 0 0 162.2 58.7 Z" fill="#41B883" opacity="0.85"/>
+  <path d="M162.8 27.0 A75 75 0 0 1 173.5 25.3 L176.1 55.2 A45 45 0 0 0 169.7 56.2 Z" fill="#563D7C" opacity="0.85"/>
+  <path d="M173.5 25.3 A75 75 0 0 1 177.6 25.0 L178.6 55.0 A45 45 0 0 0 176.1 55.2 Z" fill="#E34F26" opacity="0.85"/>
+  <path d="M177.6 25.0 A75 75 0 0 1 180.0 25.0 L180.0 55.0 A45 45 0 0 0 178.6 55.0 Z" fill="#8B92A8" opacity="0.85"/>
   <rect x="340" y="40" width="12" height="12" rx="2" fill="#3776AB" opacity="0.85"/>
   <text x="358" y="51" font-family="Georgia, serif" font-size="13" fill="#F5E6C8">Python</text>
-  <text x="520" y="51" font-family="JetBrains Mono, monospace" font-size="13" fill="#C9A86A" text-anchor="end">54.4%</text>
+  <text x="520" y="51" font-family="JetBrains Mono, monospace" font-size="13" fill="#C9A86A" text-anchor="end">56.0%</text>
   <rect x="580" y="40" width="12" height="12" rx="2" fill="#F7DF1E" opacity="0.85"/>
   <text x="598" y="51" font-family="Georgia, serif" font-size="13" fill="#F5E6C8">JavaScript</text>
-  <text x="760" y="51" font-family="JetBrains Mono, monospace" font-size="13" fill="#C9A86A" text-anchor="end">29.0%</text>
+  <text x="760" y="51" font-family="JetBrains Mono, monospace" font-size="13" fill="#C9A86A" text-anchor="end">30.6%</text>
   <rect x="340" y="72" width="12" height="12" rx="2" fill="#3178C6" opacity="0.85"/>
   <text x="358" y="83" font-family="Georgia, serif" font-size="13" fill="#F5E6C8">TypeScript</text>
-  <text x="520" y="83" font-family="JetBrains Mono, monospace" font-size="13" fill="#C9A86A" text-anchor="end">10.4%</text>
+  <text x="520" y="83" font-family="JetBrains Mono, monospace" font-size="13" fill="#C9A86A" text-anchor="end">6.9%</text>
   <rect x="580" y="72" width="12" height="12" rx="2" fill="#41B883" opacity="0.85"/>
   <text x="598" y="83" font-family="Georgia, serif" font-size="13" fill="#F5E6C8">Vue</text>
-  <text x="760" y="83" font-family="JetBrains Mono, monospace" font-size="13" fill="#C9A86A" text-anchor="end">2.7%</text>
+  <text x="760" y="83" font-family="JetBrains Mono, monospace" font-size="13" fill="#C9A86A" text-anchor="end">2.8%</text>
   <rect x="340" y="104" width="12" height="12" rx="2" fill="#563D7C" opacity="0.85"/>
   <text x="358" y="115" font-family="Georgia, serif" font-size="13" fill="#F5E6C8">CSS</text>
-  <text x="520" y="115" font-family="JetBrains Mono, monospace" font-size="13" fill="#C9A86A" text-anchor="end">2.2%</text>
+  <text x="520" y="115" font-family="JetBrains Mono, monospace" font-size="13" fill="#C9A86A" text-anchor="end">2.3%</text>
   <rect x="580" y="104" width="12" height="12" rx="2" fill="#E34F26" opacity="0.85"/>
   <text x="598" y="115" font-family="Georgia, serif" font-size="13" fill="#F5E6C8">HTML</text>
-  <text x="760" y="115" font-family="JetBrains Mono, monospace" font-size="13" fill="#C9A86A" text-anchor="end">0.8%</text>
+  <text x="760" y="115" font-family="JetBrains Mono, monospace" font-size="13" fill="#C9A86A" text-anchor="end">0.9%</text>
   <rect x="340" y="136" width="12" height="12" rx="2" fill="#8B92A8" opacity="0.85"/>
   <text x="358" y="147" font-family="Georgia, serif" font-size="13" fill="#F5E6C8">Other</text>
   <text x="520" y="147" font-family="JetBrains Mono, monospace" font-size="13" fill="#C9A86A" text-anchor="end">0.5%</text>

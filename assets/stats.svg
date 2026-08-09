@@ -9,11 +9,11 @@
   <rect x="6" y="6" width="808" height="148" fill="none" stroke="#C9A86A" stroke-width="0.6" stroke-opacity="0.5" rx="4"/>
   <text x="410" y="32" text-anchor="middle" font-family="Georgia, 'Noto Serif SC', serif" font-size="16" fill="#C9A86A" letter-spacing="3">GitHub Stats</text>
   <line x1="300" y1="42" x2="520" y2="42" stroke="#C9A86A" stroke-width="0.4" stroke-opacity="0.4"/>
-  <text x="102" y="72" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="34" font-weight="600" fill="#C9A86A">44</text>
+  <text x="102" y="72" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="34" font-weight="600" fill="#C9A86A">43</text>
   <text x="102" y="100" text-anchor="middle" font-family="Georgia, 'Noto Serif SC', serif" font-size="13" fill="#8B92A8" letter-spacing="1.5">Repos</text>
-  <text x="307" y="72" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="34" font-weight="600" fill="#C9A86A">85</text>
+  <text x="307" y="72" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="34" font-weight="600" fill="#C9A86A">91</text>
   <text x="307" y="100" text-anchor="middle" font-family="Georgia, 'Noto Serif SC', serif" font-size="13" fill="#8B92A8" letter-spacing="1.5">Stars</text>
-  <text x="512" y="72" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="34" font-weight="600" fill="#C9A86A">5</text>
+  <text x="512" y="72" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="34" font-weight="600" fill="#C9A86A">6</text>
   <text x="512" y="100" text-anchor="middle" font-family="Georgia, 'Noto Serif SC', serif" font-size="13" fill="#8B92A8" letter-spacing="1.5">Followers</text>
   <text x="717" y="72" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="34" font-weight="600" fill="#C9A86A">6</text>
   <text x="717" y="100" text-anchor="middle" font-family="Georgia, 'Noto Serif SC', serif" font-size="13" fill="#8B92A8" letter-spacing="1.5">Forks</text>

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 140" width="100%" height="auto">
+  <defs>
+    <linearGradient id="lb" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0B1026"/>
+      <stop offset="1" stop-color="#131a3f"/>
+    </linearGradient>
+  </defs>
+  <rect width="820" height="140" fill="url(#lb)" rx="10"/>
+  <rect x="6" y="6" width="808" height="128" fill="none" stroke="#C9A86A" stroke-width="0.6" stroke-opacity="0.45" rx="8"/>
+  <text x="40" y="80.0" font-family="Georgia, serif" font-size="26" fill="#C9A86A">⌖</text>
+  <text x="80" y="68.0" font-family="Georgia, 'Noto Serif SC', serif" font-size="15" fill="#8B92A8" letter-spacing="2">CURRENTLY IN</text>
+  <text x="80" y="96.0" font-family="Georgia, 'Noto Serif SC', serif" font-size="26" fill="#F5E6C8">深圳 · Shenzhen, China</text>
+  <text x="750" y="68.0" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="15" fill="#C9A86A">17:44</text>
+  <text x="750" y="92.0" text-anchor="end" font-family="Georgia, serif" font-size="13" fill="#8B92A8">2026-08-09 Sunday · CST (UTC+8)</text>
+</svg>

@@ -31,7 +31,9 @@ jobs:
       - name: Regenerate daily SVGs
         env:
           GH_STATS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: python3 scripts/gen_assets.py || true
+        run: |
+          python3 scripts/gen_assets.py || true
+          python3 scripts/gen_extras.py || true
 
       - name: Show generated files
         run: |
@@ -50,10 +52,13 @@ jobs:
           echo ""
           echo "--- contributions.svg ---"
           head -c 300 assets/contributions.svg
+          echo ""
+          echo "--- projects.svg ---"
+          head -c 300 assets/projects.svg
 
       - name: Commit to GitHub
         run: |
-          git add assets/quote.svg assets/onthisday.svg assets/stats.svg assets/languages.svg assets/contributions.svg
+          git add assets/quote.svg assets/onthisday.svg assets/stats.svg assets/languages.svg assets/contributions.svg assets/typing-banner.svg assets/visitors.svg assets/location.svg assets/projects.svg
           if git diff --cached --quiet; then
             echo "no changes"
           else

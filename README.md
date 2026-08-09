@@ -5,6 +5,10 @@
 </p>
 
 <p align="center">
+  <img src="./assets/typing-banner.svg" alt="typing banner" width="100%" />
+</p>
+
+<p align="center">
   <em>Below the night sky, between the lines of code. Every project is a star, hung in its own sky.</em>
 </p>
 
@@ -20,15 +24,33 @@ badhope / weed33834
 
 A developer who turns abstract ideas into tangible interfaces. Focused on full-stack work and creative tooling, with a preference for clean, considered design over yet another template. Code and starlight have this in common: the craft is in the details.
 
-- Currently working on: interactive visualizations, automated workflows, and small tools that earn a knowing smile
-- Go-to languages: TypeScript / Python / Rust
-- Motto: rather than better, different
+- **Currently working on**: interactive visualizations, automated workflows, and small tools that earn a knowing smile
+- **Go-to languages**: TypeScript / Python / Rust
+- **Motto**: rather than better, different
+
+<p align="center">
+  <img src="./assets/divider.svg" alt="divider" />
+</p>
+
+## Profile
+
+<p align="center">
+  <img src="./assets/location.svg" alt="current location" width="820" />
+</p>
+
+<p align="center">
+  <img src="./assets/visitors.svg" alt="profile visits" width="820" />
+</p>
 
 <p align="center">
   <img src="./assets/divider.svg" alt="divider" />
 </p>
 
 ## Tech Stack
+
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=ts,react,vite,tailwind,python,rust,nodejs,docker,git,github,vercel,linux" alt="Tech Stack Icons" />
+</p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white&labelColor=0B1026" alt="TypeScript" />
@@ -49,12 +71,10 @@ A developer who turns abstract ideas into tangible interfaces. Focused on full-s
 ## Featured Projects
 
 <p align="center">
-  <a href="https://github.com/weed33834/nova"><img src="https://img.shields.io/badge/⭐_nova-AI_Classroom-C9A86A?style=for-the-badge&logo=github&logoColor=white&labelColor=0B1026" alt="nova" /></a>
-  <a href="https://github.com/weed33834/agentvalue"><img src="https://img.shields.io/badge/⭐_agentvalue-Agent_Platform-C9A86A?style=for-the-badge&logo=github&logoColor=white&labelColor=0B1026" alt="agentvalue" /></a>
-  <a href="https://github.com/weed33834/echo"><img src="https://img.shields.io/badge/⭐_echo-Divination_Engine-C9A86A?style=for-the-badge&logo=github&logoColor=white&labelColor=0B1026" alt="echo" /></a>
+  <img src="./assets/projects.svg" alt="featured projects" width="100%" />
 </p>
 
-<p align="center"><sub>nova — AI-powered classroom with real-time interaction · agentvalue — multi-provider LLM agent platform · echo — I-Ching divination engine</sub></p>
+<p align="center"><sub>EduFlow — AI classroom · FinPilot — virtual finance dept · agentseed — agent governance · goto — encrypted persistence · echo — divination engine · HumanValue — talent value</sub></p>
 
 <p align="center">
   <img src="./assets/divider.svg" alt="divider" />
