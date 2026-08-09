@@ -36,7 +36,7 @@ SLATE = "#8B92A8"
 DARK = "#5a6280"
 
 # ---- 项目卡片墙数据(短名 -> 展示信息) ----
-# 精选真实项目,按 star 与代表性排序
+# 精选真实项目。star 数会从 GitHub API 实时抓取,失败时回退到内置值。
 PROJECTS = [
     ("EduFlow", "AI 驱动的学生自主学习平台", "Python", "35"),
     ("FinPilot", "你的虚拟财务部门 · 多 Agent", "Python", "10"),
@@ -59,6 +59,32 @@ TYPING_WORDS = [
 
 def escape_xml(s):
     return str(s).replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace('"', "&quot;")
+
+
+def fetch_github_stars(repos):
+    """从 GitHub API 抓取仓库真实 star 数。返回 {name: star_count},失败时返回空 dict(调用方回退内置值)。"""
+    import os
+    token = os.environ.get("GH_STATS_TOKEN", "")
+    headers = {"User-Agent": UA, "Accept": "application/vnd.github+json"}
+    if token:
+        headers["Authorization"] = f"Bearer {token}"
+    result = {}
+    ok = 0
+    for name, _d, _l, _s in repos:
+        try:
+            req = urllib.request.Request(
+                f"https://api.github.com/repos/{GITHUB_USER}/{name}",
+                headers=headers,
+            )
+            with urllib.request.urlopen(req, timeout=10) as r:
+                data = json.loads(r.read().decode("utf-8"))
+                result[name] = str(data.get("stargazers_count", 0))
+                ok += 1
+        except Exception as e:
+            print(f"  [projects] {name} 抓取失败: {type(e).__name__}: {e}")
+    if ok:
+        print(f"  [projects] 成功抓取 {ok}/{len(repos)} 个仓库的 star 数")
+    return result
 
 
 def card_bg(W, H, gid):
@@ -148,8 +174,12 @@ def gen_location(W=820, H=140):
 
 
 # ---------------- 项目卡片墙 ----------------
-def gen_projects(W=820):
-    """项目卡片墙: 2 列 x 4 行。每张卡片含名称/描述/语言/star。"""
+def gen_projects(W=820, stars_map=None):
+    """项目卡片墙: 2 列 x 4 行。每张卡片含名称/描述/语言/star。
+
+    stars_map: {name: star_str} 动态 star 数;为 None 或缺失时用内置值。
+    """
+    stars_map = stars_map or {}
     cols = 2
     rows = (len(PROJECTS) + 1) // 2
     card_w = 385
@@ -174,10 +204,11 @@ def gen_projects(W=820):
   <rect width="{W}" height="{H}" fill="url(#pb)" rx="10"/>
   <rect x="6" y="6" width="{W-12}" height="{H-12}" fill="none" stroke="{GOLD}" stroke-width="0.6" stroke-opacity="0.45" rx="8"/>
   {card_title(W, 34, "FEATURED PROJECTS", "pb")}'''
-    for i, (name, desc, lang, stars) in enumerate(PROJECTS):
+    for i, (name, desc, lang, default_stars) in enumerate(PROJECTS):
         r, c = divmod(i, cols)
         x = margin + c * (card_w + gap_x)
         y = header_h + r * (card_h + gap_y)
+        stars = stars_map.get(name, default_stars)
         lang_dot = {"Python": "#3572A5", "TypeScript": "#3178C6", "Rust": "#DEA584", "Go": "#00ADD8", "JavaScript": "#f1e05a"}.get(lang, "#C9A86A")
         xml += f'''
   <g>
@@ -200,11 +231,15 @@ def main():
     print(f"时间: {datetime.now(timezone.utc).isoformat()}")
     print("=" * 60)
 
+    # 项目卡片墙: 实时抓取 star 数(失败回退内置值)
+    print("\n[1/4] 抓取项目 star 数(GitHub API)...")
+    stars_map = fetch_github_stars(PROJECTS)
+
     files = {
         "typing-banner.svg": gen_typing_banner,
         "visitors.svg": gen_visitors,
         "location.svg": gen_location,
-        "projects.svg": gen_projects,
+        "projects.svg": lambda: gen_projects(stars_map=stars_map),
     }
     for name, fn in files.items():
         try:
