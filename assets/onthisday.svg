@@ -1,20 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 308.09999999999997" width="100%" height="auto">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 291.2" width="100%" height="auto">
   <defs>
     <linearGradient id="obg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#0B1026"/>
       <stop offset="1" stop-color="#131a3f"/>
     </linearGradient>
   </defs>
-  <rect width="820" height="308.09999999999997" fill="url(#obg)" rx="6"/>
-  <rect x="6" y="6" width="808" height="296.09999999999997" fill="none" stroke="#C9A86A" stroke-width="0.6" stroke-opacity="0.5" rx="4"/>
-  <text x="410" y="40" text-anchor="middle" font-family="Georgia, 'Noto Serif SC', serif" font-size="20" fill="#C9A86A" letter-spacing="3">历史上的今天 · 08/12</text>
+  <rect width="820" height="291.2" fill="url(#obg)" rx="6"/>
+  <rect x="6" y="6" width="808" height="279.2" fill="none" stroke="#C9A86A" stroke-width="0.6" stroke-opacity="0.5" rx="4"/>
+  <text x="410" y="40" text-anchor="middle" font-family="Georgia, 'Noto Serif SC', serif" font-size="20" fill="#C9A86A" letter-spacing="3">历史上的今天 · 08/13</text>
   <line x1="280" y1="52" x2="540" y2="52" stroke="#C9A86A" stroke-width="0.4" stroke-opacity="0.4"/>
-  <text x="40" y="78" font-family="JetBrains Mono, monospace" font-size="15" fill="#C9A86A" font-weight="500">1099</text>
-  <text x="100" y="78" font-family="Georgia, 'Noto Serif SC', serif" font-size="13" fill="#F5E6C8"><tspan x="100" dy="0.0">First Crusade: Battle of Ascalon: Crusaders under the</tspan><tspan x="100" dy="16.9">command of Godfrey of Bouillon defeat Fatimid forces led</tspan><tspan x="100" dy="16.9">by Al-...</tspan></text>
-  <text x="40" y="144.7" font-family="JetBrains Mono, monospace" font-size="15" fill="#C9A86A" font-weight="500">1121</text>
-  <text x="100" y="144.7" font-family="Georgia, 'Noto Serif SC', serif" font-size="13" fill="#F5E6C8"><tspan x="100" dy="0.0">Battle of Didgori: The Georgian army under King David IV</tspan><tspan x="100" dy="16.9">wins a decisive victory over the famous Seljuk commander</tspan><tspan x="100" dy="16.9">Ilg...</tspan></text>
-  <text x="40" y="211.39999999999998" font-family="JetBrains Mono, monospace" font-size="15" fill="#C9A86A" font-weight="500">1164</text>
-  <text x="100" y="211.39999999999998" font-family="Georgia, 'Noto Serif SC', serif" font-size="13" fill="#F5E6C8"><tspan x="100" dy="0.0">Battle of Harim: Nur ad-Din Zangi defeats the Crusader</tspan><tspan x="100" dy="16.9">armies of the County of Tripoli and the Principality of</tspan><tspan x="100" dy="16.9">Antioch.</tspan></text>
+  <text x="40" y="78" font-family="JetBrains Mono, monospace" font-size="15" fill="#C9A86A" font-weight="500">-29</text>
+  <text x="100" y="78" font-family="Georgia, 'Noto Serif SC', serif" font-size="13" fill="#F5E6C8"><tspan x="100" dy="0.0">Octavian holds the first of three consecutive triumphs</tspan><tspan x="100" dy="16.9">in Rome to celebrate the victory over the Dalmatian</tspan><tspan x="100" dy="16.9">tribes.</tspan></text>
+  <text x="40" y="144.7" font-family="JetBrains Mono, monospace" font-size="15" fill="#C9A86A" font-weight="500">523</text>
+  <text x="100" y="144.7" font-family="Georgia, 'Noto Serif SC', serif" font-size="13" fill="#F5E6C8"><tspan x="100" dy="0.0">John I becomes the new Pope after the death of Pope</tspan><tspan x="100" dy="16.9">Hormisdas.</tspan></text>
+  <text x="40" y="194.5" font-family="JetBrains Mono, monospace" font-size="15" fill="#C9A86A" font-weight="500">554</text>
+  <text x="100" y="194.5" font-family="Georgia, 'Noto Serif SC', serif" font-size="13" fill="#F5E6C8"><tspan x="100" dy="0.0">Emperor Justinian I issues a Pragmatic Sanction in which</tspan><tspan x="100" dy="16.9">he organises the renewed Roman rule over the recently</tspan><tspan x="100" dy="16.9">re-con...</tspan></text>
   
-  <text x="410" y="298.09999999999997" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#5a6280" letter-spacing="1.5">via wikipedia-en · Wikipedia On This Day</text>
+  <text x="410" y="281.2" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#5a6280" letter-spacing="1.5">via wikipedia-en · Wikipedia On This Day</text>
 </svg>
