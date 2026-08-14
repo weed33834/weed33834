@@ -11,7 +11,7 @@
   <line x1="300" y1="42" x2="520" y2="42" stroke="#C9A86A" stroke-width="0.4" stroke-opacity="0.4"/>
   <text x="102" y="72" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="34" font-weight="600" fill="#C9A86A">51</text>
   <text x="102" y="100" text-anchor="middle" font-family="Georgia, 'Noto Serif SC', serif" font-size="13" fill="#8B92A8" letter-spacing="1.5">Repos</text>
-  <text x="307" y="72" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="34" font-weight="600" fill="#C9A86A">87</text>
+  <text x="307" y="72" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="34" font-weight="600" fill="#C9A86A">88</text>
   <text x="307" y="100" text-anchor="middle" font-family="Georgia, 'Noto Serif SC', serif" font-size="13" fill="#8B92A8" letter-spacing="1.5">Stars</text>
   <text x="512" y="72" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="34" font-weight="600" fill="#C9A86A">6</text>
   <text x="512" y="100" text-anchor="middle" font-family="Georgia, 'Noto Serif SC', serif" font-size="13" fill="#8B92A8" letter-spacing="1.5">Followers</text>
