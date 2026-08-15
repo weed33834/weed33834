@@ -38,7 +38,7 @@
     <text x="38" y="246" font-family="Georgia, 'Noto Serif SC', serif" font-size="12" fill="#8B92A8">AI agent 治理层</text>
     <circle cx="38" cy="270" r="4" fill="#3572A5"/>
     <text x="48" y="274" font-family="Georgia, serif" font-size="11" fill="#8B92A8">Python</text>
-    <text x="387" y="274" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="11" fill="#8B92A8">★ 6</text>
+    <text x="387" y="274" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="11" fill="#8B92A8">★ 9</text>
   </g>
   <g>
     <rect x="427" y="190" width="385" height="108" rx="8" fill="url(#pc)" stroke="#C9A86A" stroke-width="0.4" stroke-opacity="0.35"/>
