@@ -22,7 +22,7 @@
     <text x="38" y="120" font-family="Georgia, 'Noto Serif SC', serif" font-size="12" fill="#8B92A8">AI 驱动的学生自主学习平台</text>
     <circle cx="38" cy="144" r="4" fill="#3572A5"/>
     <text x="48" y="148" font-family="Georgia, serif" font-size="11" fill="#8B92A8">Python</text>
-    <text x="387" y="148" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="11" fill="#8B92A8">★ 35</text>
+    <text x="387" y="148" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="11" fill="#8B92A8">★ 36</text>
   </g>
   <g>
     <rect x="427" y="64" width="385" height="108" rx="8" fill="url(#pc)" stroke="#C9A86A" stroke-width="0.4" stroke-opacity="0.35"/>
@@ -30,7 +30,7 @@
     <text x="445" y="120" font-family="Georgia, 'Noto Serif SC', serif" font-size="12" fill="#8B92A8">你的虚拟财务部门 · 多 Agent</text>
     <circle cx="445" cy="144" r="4" fill="#3572A5"/>
     <text x="455" y="148" font-family="Georgia, serif" font-size="11" fill="#8B92A8">Python</text>
-    <text x="794" y="148" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="11" fill="#8B92A8">★ 10</text>
+    <text x="794" y="148" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="11" fill="#8B92A8">★ 11</text>
   </g>
   <g>
     <rect x="20" y="190" width="385" height="108" rx="8" fill="url(#pc)" stroke="#C9A86A" stroke-width="0.4" stroke-opacity="0.35"/>
@@ -38,7 +38,7 @@
     <text x="38" y="246" font-family="Georgia, 'Noto Serif SC', serif" font-size="12" fill="#8B92A8">AI agent 治理层</text>
     <circle cx="38" cy="270" r="4" fill="#3572A5"/>
     <text x="48" y="274" font-family="Georgia, serif" font-size="11" fill="#8B92A8">Python</text>
-    <text x="387" y="274" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="11" fill="#8B92A8">★ 9</text>
+    <text x="387" y="274" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="11" fill="#8B92A8">★ 18</text>
   </g>
   <g>
     <rect x="427" y="190" width="385" height="108" rx="8" fill="url(#pc)" stroke="#C9A86A" stroke-width="0.4" stroke-opacity="0.35"/>
@@ -46,7 +46,7 @@
     <text x="445" y="246" font-family="Georgia, 'Noto Serif SC', serif" font-size="12" fill="#8B92A8">本地优先 · 端到端加密持久化</text>
     <circle cx="445" cy="270" r="4" fill="#3178C6"/>
     <text x="455" y="274" font-family="Georgia, serif" font-size="11" fill="#8B92A8">TypeScript</text>
-    <text x="794" y="274" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="11" fill="#8B92A8">★ 5</text>
+    <text x="794" y="274" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="11" fill="#8B92A8">★ 6</text>
   </g>
   <g>
     <rect x="20" y="316" width="385" height="108" rx="8" fill="url(#pc)" stroke="#C9A86A" stroke-width="0.4" stroke-opacity="0.35"/>
@@ -62,7 +62,7 @@
     <text x="445" y="372" font-family="Georgia, 'Noto Serif SC', serif" font-size="12" fill="#8B92A8">AI 驱动的人才价值量化平台</text>
     <circle cx="445" cy="396" r="4" fill="#3572A5"/>
     <text x="455" y="400" font-family="Georgia, serif" font-size="11" fill="#8B92A8">Python</text>
-    <text x="794" y="400" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="11" fill="#8B92A8">★ 4</text>
+    <text x="794" y="400" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="11" fill="#8B92A8">★ 5</text>
   </g>
   <g>
     <rect x="20" y="442" width="385" height="108" rx="8" fill="url(#pc)" stroke="#C9A86A" stroke-width="0.4" stroke-opacity="0.35"/>
