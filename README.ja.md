@@ -27,15 +27,23 @@ badhope / weed33834
   <a href="https://github-readme-stats.vercel.app/api/top-langs/?username=weed33834&hide_border=true&bg_color=0B1026&title_color=C9A86A&text_color=F5E6C8&layout=compact&card_width=320"><img src="https://github-readme-stats.vercel.app/api/top-langs/?username=weed33834&hide_border=true&bg_color=0B1026&title_color=C9A86A&text_color=F5E6C8&layout=compact&card_width=320" alt="Top Languages" width="340" /></a>
 </p>
 
+## コントリビューション連続記録
+
 <p align="center">
   <a href="https://streak-stats.demolab.com/?user=weed33834&hide_border=true&background=0B1026&ring=C9A86A&fire=C9A86A&currStreakLabel=C9A86A&sideLabels=F5E6C8&dates=8B92A8&currStreakNum=F5E6C8"><img src="https://streak-stats.demolab.com/?user=weed33834&hide_border=true&background=0B1026&ring=C9A86A&fire=C9A86A&currStreakLabel=C9A86A&sideLabels=F5E6C8&dates=8B92A8&currStreakNum=F5E6C8" alt="GitHub Streak" width="720" /></a>
 </p>
+
+## トロフィー
 
 <p align="center">
   <a href="https://github-profile-trophy.vercel.app/?username=weed33834&theme=darkhub&no-bg=true&column=7&margin-w=4"><img src="https://github-profile-trophy.vercel.app/?username=weed33834&theme=darkhub&no-bg=true&column=7&margin-w=4" alt="Trophies" /></a>
 </p>
 
-<p align="center"><sub>統計は github-readme-stats、streak-stats、github-profile-trophy で自動更新</sub></p>
+## アクティビティグラフ
+
+<p align="center">
+  <a href="https://github-readme-activity-graph.vercel.app/graph?username=weed33834&bg_color=0B1026&color=C9A86A&line=C9A86A&point=C9A86A&area=true&hide_border=true&height=300&days=30"><img src="https://github-readme-activity-graph.vercel.app/graph?username=weed33834&bg_color=0B1026&color=C9A86A&line=C9A86A&point=C9A86A&area=true&hide_border=true&height=300&days=30" alt="Activity Graph" width="98%" /></a>
+</p>
 
 ## コントリビューション
 
@@ -43,7 +51,11 @@ badhope / weed33834
   <img src="./assets/github-contribution-grid-snake.svg" alt="Contribution Snake" width="100%" />
 </p>
 
-<p align="center"><sub>GitHub Action で Platane/snk を使用し毎日自動生成</sub></p>
+## 3D コントリビューション
+
+<p align="center">
+  <img src="./profile-3d-contrib/profile-night-green-animate.svg" alt="3D Contribution" width="98%" />
+</p>
 
 ## 技術スタック
 
@@ -78,6 +90,12 @@ badhope / weed33834
 <p align="center">
   <a href="https://github.com/weed33834/HumanValue"><img src="https://github-readme-stats.vercel.app/api/pin/?username=weed33834&repo=HumanValue&hide_border=true&bg_color=0B1026&title_color=C9A86A&text_color=F5E6C8" alt="HumanValue" /></a>
   <a href="https://github.com/weed33834/OpenBox"><img src="https://github-readme-stats.vercel.app/api/pin/?username=weed33834&repo=OpenBox&hide_border=true&bg_color=0B1026&title_color=C9A86A&text_color=F5E6C8" alt="OpenBox" /></a>
+</p>
+
+## 今日の名言
+
+<p align="center">
+  <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=dark&bg_color=0B1026&border=false" alt="Dev Quote" width="98%" />
 </p>
 
 ## 他の場所
