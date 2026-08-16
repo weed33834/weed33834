@@ -75,21 +75,93 @@ A developer who turns abstract ideas into tangible interfaces. Focused on full-s
   <img src="https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white&labelColor=0B1026" alt="Docker" />
 </p>
 
-## Featured Projects
+## Projects
+
+### 🎓 AI & Education
 
 <p align="center">
   <a href="https://github.com/weed33834/EduFlow"><img src="https://github-readme-stats.vercel.app/api/pin/?username=weed33834&repo=EduFlow&hide_border=true&bg_color=0B1026&title_color=C9A86A&text_color=F5E6C8" alt="EduFlow" /></a>
-  <a href="https://github.com/weed33834/AgentSeed"><img src="https://github-readme-stats.vercel.app/api/pin/?username=weed33834&repo=AgentSeed&hide_border=true&bg_color=0B1026&title_color=C9A86A&text_color=F5E6C8" alt="AgentSeed" /></a>
-</p>
-
-<p align="center">
   <a href="https://github.com/weed33834/FinPilot"><img src="https://github-readme-stats.vercel.app/api/pin/?username=weed33834&repo=FinPilot&hide_border=true&bg_color=0B1026&title_color=C9A86A&text_color=F5E6C8" alt="FinPilot" /></a>
-  <a href="https://github.com/weed33834/campushub"><img src="https://github-readme-stats.vercel.app/api/pin/?username=weed33834&repo=campushub&hide_border=true&bg_color=0B1026&title_color=C9A86A&text_color=F5E6C8" alt="campushub" /></a>
 </p>
 
 <p align="center">
   <a href="https://github.com/weed33834/HumanValue"><img src="https://github-readme-stats.vercel.app/api/pin/?username=weed33834&repo=HumanValue&hide_border=true&bg_color=0B1026&title_color=C9A86A&text_color=F5E6C8" alt="HumanValue" /></a>
+  <a href="https://github.com/weed33834/DoctorAgent"><img src="https://github-readme-stats.vercel.app/api/pin/?username=weed33834&repo=DoctorAgent&hide_border=true&bg_color=0B1026&title_color=C9A86A&text_color=F5E6C8" alt="DoctorAgent" /></a>
+</p>
+
+### 🤖 AI Agent & Framework
+
+<p align="center">
+  <a href="https://github.com/weed33834/AgentSeed"><img src="https://github-readme-stats.vercel.app/api/pin/?username=weed33834&repo=AgentSeed&hide_border=true&bg_color=0B1026&title_color=C9A86A&text_color=F5E6C8" alt="AgentSeed" /></a>
+  <a href="https://github.com/weed33834/agent-builder-skill"><img src="https://github-readme-stats.vercel.app/api/pin/?username=weed33834&repo=agent-builder-skill&hide_border=true&bg_color=0B1026&title_color=C9A86A&text_color=F5E6C8" alt="agent-builder-skill" /></a>
+</p>
+
+<p align="center">
+  <a href="https://github.com/weed33834/JustAgent"><img src="https://github-readme-stats.vercel.app/api/pin/?username=weed33834&repo=JustAgent&hide_border=true&bg_color=0B1026&title_color=C9A86A&text_color=F5E6C8" alt="JustAgent" /></a>
+  <a href="https://github.com/weed33834/deadman"><img src="https://github-readme-stats.vercel.app/api/pin/?username=weed33834&repo=deadman&hide_border=true&bg_color=0B1026&title_color=C9A86A&text_color=F5E6C8" alt="deadman" /></a>
+</p>
+
+### 🧭 AI Resource & Navigation
+
+<p align="center">
   <a href="https://github.com/weed33834/OpenBox"><img src="https://github-readme-stats.vercel.app/api/pin/?username=weed33834&repo=OpenBox&hide_border=true&bg_color=0B1026&title_color=C9A86A&text_color=F5E6C8" alt="OpenBox" /></a>
+</p>
+
+### 🏫 Campus & Community
+
+<p align="center">
+  <a href="https://github.com/weed33834/campushub"><img src="https://github-readme-stats.vercel.app/api/pin/?username=weed33834&repo=campushub&hide_border=true&bg_color=0B1026&title_color=C9A86A&text_color=F5E6C8" alt="campushub" /></a>
+</p>
+
+### 🎨 Creative & Interactive
+
+<p align="center">
+  <a href="https://github.com/weed33834/compass"><img src="https://github-readme-stats.vercel.app/api/pin/?username=weed33834&repo=compass&hide_border=true&bg_color=0B1026&title_color=C9A86A&text_color=F5E6C8" alt="compass" /></a>
+  <a href="https://github.com/weed33834/Anime-Friends"><img src="https://github-readme-stats.vercel.app/api/pin/?username=weed33834&repo=Anime-Friends&hide_border=true&bg_color=0B1026&title_color=C9A86A&text_color=F5E6C8" alt="Anime-Friends" /></a>
+</p>
+
+### ✍️ Content & Automation
+
+<p align="center">
+  <a href="https://github.com/weed33834/cnblogs-skill"><img src="https://github-readme-stats.vercel.app/api/pin/?username=weed33834&repo=cnblogs-skill&hide_border=true&bg_color=0B1026&title_color=C9A86A&text_color=F5E6C8" alt="cnblogs-skill" /></a>
+  <a href="https://github.com/weed33834/zhihu-skill"><img src="https://github-readme-stats.vercel.app/api/pin/?username=weed33834&repo=zhihu-skill&hide_border=true&bg_color=0B1026&title_color=C9A86A&text_color=F5E6C8" alt="zhihu-skill" /></a>
+</p>
+
+### 🌍 Life & Commerce
+
+<p align="center">
+  <a href="https://github.com/weed33834/Traveler"><img src="https://github-readme-stats.vercel.app/api/pin/?username=weed33834&repo=Traveler&hide_border=true&bg_color=0B1026&title_color=C9A86A&text_color=F5E6C8" alt="Traveler" /></a>
+  <a href="https://github.com/weed33834/KeBaiPay"><img src="https://github-readme-stats.vercel.app/api/pin/?username=weed33834&repo=KeBaiPay&hide_border=true&bg_color=0B1026&title_color=C9A86A&text_color=F5E6C8" alt="KeBaiPay" /></a>
+</p>
+
+### 🔀 Notable Forks
+
+<p align="center">
+  <a href="https://github.com/weed33834/ai-api-gongyi-nav"><img src="https://github-readme-stats.vercel.app/api/pin/?username=weed33834&repo=ai-api-gongyi-nav&hide_border=true&bg_color=0B1026&title_color=C9A86A&text_color=F5E6C8" alt="ai-api-gongyi-nav" /></a>
+  <a href="https://github.com/weed33834/WorldFoundry"><img src="https://github-readme-stats.vercel.app/api/pin/?username=weed33834&repo=WorldFoundry&hide_border=true&bg_color=0B1026&title_color=C9A86A&text_color=F5E6C8" alt="WorldFoundry" /></a>
+</p>
+
+## Open Source Radar
+
+<p align="center">
+  Tools and frameworks worth watching.
+</p>
+
+<p align="center">
+  <a href="https://github.com/vercel/next.js"><img src="https://img.shields.io/badge/Next.js-000000?style=flat&logo=next.js&logoColor=white&labelColor=0B1026" alt="Next.js" /></a>
+  <a href="https://github.com/facebook/react"><img src="https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=white&labelColor=0B1026" alt="React" /></a>
+  <a href="https://github.com/tailwindlabs/tailwindcss"><img src="https://img.shields.io/badge/Tailwind-38BDF8?style=flat&logo=tailwindcss&logoColor=white&labelColor=0B1026" alt="Tailwind" /></a>
+  <a href="https://github.com/langchain-ai/langchain"><img src="https://img.shields.io/badge/LangChain-1C3C3C?style=flat&logo=langchain&logoColor=white&labelColor=0B1026" alt="LangChain" /></a>
+  <br/>
+  <a href="https://github.com/microsoft/autogen"><img src="https://img.shields.io/badge/AutoGen-0078D4?style=flat&logo=microsoft&logoColor=white&labelColor=0B1026" alt="AutoGen" /></a>
+  <a href="https://github.com/vercel/ai"><img src="https://img.shields.io/badge/Vercel_AI_SDK-000000?style=flat&logo=vercel&logoColor=white&labelColor=0B1026" alt="Vercel AI" /></a>
+  <a href="https://github.com/pydantic/pydantic-ai"><img src="https://img.shields.io/badge/Pydantic_AI-E92063?style=flat&logo=pydantic&logoColor=white&labelColor=0B1026" alt="Pydantic AI" /></a>
+  <a href="https://github.com/fastapi/fastapi"><img src="https://img.shields.io/badge/FastAPI-009688?style=flat&logo=fastapi&logoColor=white&labelColor=0B1026" alt="FastAPI" /></a>
+  <br/>
+  <a href="https://github.com/docker/docker"><img src="https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white&labelColor=0B1026" alt="Docker" /></a>
+  <a href="https://github.com/astral-sh/uv"><img src="https://img.shields.io/badge/uv-DE5FE9?style=flat&logo=python&logoColor=white&labelColor=0B1026" alt="uv" /></a>
+  <a href="https://github.com/microsoft/playwright"><img src="https://img.shields.io/badge/Playwright-2EAD33?style=flat&logo=playwright&logoColor=white&labelColor=0B1026" alt="Playwright" /></a>
+  <a href="https://github.com/anthropics/claude-code"><img src="https://img.shields.io/badge/Claude_Code-D97757?style=flat&logo=anthropic&logoColor=white&labelColor=0B1026" alt="Claude Code" /></a>
 </p>
 
 ## Quote of the Day
