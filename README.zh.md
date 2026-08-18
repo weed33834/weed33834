@@ -54,7 +54,7 @@ badhope / weed33834
 ## 3D 贡献图
 
 <p align="center">
-  <img src="./profile-3d-contrib/profile-night-green-animate.svg" alt="3D Contribution" width="98%" />
+  <img src="./profile-3d-contrib/profile-green-animate.svg" alt="3D Contribution" width="98%" />
 </p>
 
 ## 技术栈
