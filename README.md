@@ -54,7 +54,7 @@ A developer who turns abstract ideas into tangible interfaces. Focused on full-s
 ## 3D Contribution
 
 <p align="center">
-  <img src="./profile-3d-contrib/profile-night-green-animate.svg" alt="3D Contribution" width="98%" />
+  <img src="./profile-3d-contrib/profile-green-animate.svg" alt="3D Contribution" width="98%" />
 </p>
 
 ## Tech Stack
