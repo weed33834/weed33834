@@ -39,12 +39,6 @@ badhope / weed33834
   <a href="https://github-profile-trophy.vercel.app/?username=weed33834&theme=darkhub&no-bg=true&column=7&margin-w=4"><img src="https://github-profile-trophy.vercel.app/?username=weed33834&theme=darkhub&no-bg=true&column=7&margin-w=4" alt="Trophies" /></a>
 </p>
 
-## 活动趋势图
-
-<p align="center">
-  <a href="https://github-readme-activity-graph.vercel.app/graph?username=weed33834&bg_color=0B1026&color=C9A86A&line=C9A86A&point=C9A86A&area=true&hide_border=true&height=300&days=30"><img src="https://github-readme-activity-graph.vercel.app/graph?username=weed33834&bg_color=0B1026&color=C9A86A&line=C9A86A&point=C9A86A&area=true&hide_border=true&height=300&days=30" alt="Activity Graph" width="98%" /></a>
-</p>
-
 ## 贡献热力图
 
 <p align="center">
