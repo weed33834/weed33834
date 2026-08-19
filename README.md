@@ -1,8 +1,6 @@
 [English](README.md) | [中文](README.zh.md) | [日本語](README.ja.md)
 
-<p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=22&duration=3000&pause=1000&color=C9A86A&center=true&vCenter=true&random=false&width=600&lines=Full-stack+Developer;Creative+Tooling;AI+Agent+Builder;Rust+%26+Python+%26+TypeScript;Interactive+Visualizations" alt="Typing SVG" />
-</p>
+<h1 align="center">badhope / weed33834</h1>
 
 <p align="center">
   <em>Below the night sky, between the lines of code. Every project is a star, hung in its own sky.</em>
@@ -20,25 +18,6 @@ A developer who turns abstract ideas into tangible interfaces. Focused on full-s
 - **Go-to languages**: TypeScript / Python / Rust
 - **Motto**: rather than better, different
 
-## GitHub Stats
-
-<p align="center">
-  <a href="https://github-readme-stats.vercel.app/api?username=weed33834&show_icons=true&hide_border=true&bg_color=0B1026&title_color=C9A86A&text_color=F5E6C8&icon_color=C9A86A&ring_color=C9A86A&card_width=320"><img src="https://github-readme-stats.vercel.app/api?username=weed33834&show_icons=true&hide_border=true&bg_color=0B1026&title_color=C9A86A&text_color=F5E6C8&icon_color=C9A86A&ring_color=C9A86A&card_width=320" alt="GitHub Stats" width="340" /></a>
-  <a href="https://github-readme-stats.vercel.app/api/top-langs/?username=weed33834&hide_border=true&bg_color=0B1026&title_color=C9A86A&text_color=F5E6C8&layout=compact&card_width=320"><img src="https://github-readme-stats.vercel.app/api/top-langs/?username=weed33834&hide_border=true&bg_color=0B1026&title_color=C9A86A&text_color=F5E6C8&layout=compact&card_width=320" alt="Top Languages" width="340" /></a>
-</p>
-
-## Contribution Streak
-
-<p align="center">
-  <a href="https://streak-stats.demolab.com/?user=weed33834&hide_border=true&background=0B1026&ring=C9A86A&fire=C9A86A&currStreakLabel=C9A86A&sideLabels=F5E6C8&dates=8B92A8&currStreakNum=F5E6C8"><img src="https://streak-stats.demolab.com/?user=weed33834&hide_border=true&background=0B1026&ring=C9A86A&fire=C9A86A&currStreakLabel=C9A86A&sideLabels=F5E6C8&dates=8B92A8&currStreakNum=F5E6C8" alt="GitHub Streak" width="720" /></a>
-</p>
-
-## Trophies
-
-<p align="center">
-  <a href="https://github-profile-trophy.vercel.app/?username=weed33834&theme=darkhub&no-bg=true&column=7&margin-w=4"><img src="https://github-profile-trophy.vercel.app/?username=weed33834&theme=darkhub&no-bg=true&column=7&margin-w=4" alt="Trophies" /></a>
-</p>
-
 ## Contribution Graph
 
 <p align="center">
@@ -52,10 +31,6 @@ A developer who turns abstract ideas into tangible interfaces. Focused on full-s
 </p>
 
 ## Tech Stack
-
-<p align="center">
-  <img src="https://skillicons.dev/icons?i=ts,react,vite,tailwind,python,rust,nodejs,docker,git,github,vercel,linux" alt="Tech Stack Icons" />
-</p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat&logo=typescript&logoColor=white&labelColor=0B1026" alt="TypeScript" />
@@ -73,67 +48,45 @@ A developer who turns abstract ideas into tangible interfaces. Focused on full-s
 
 ### 🎓 AI & Education
 
-<p align="center">
-  <a href="https://github.com/weed33834/EduFlow"><img src="https://github-readme-stats.vercel.app/api/pin/?username=weed33834&repo=EduFlow&hide_border=true&bg_color=0B1026&title_color=C9A86A&text_color=F5E6C8" alt="EduFlow" /></a>
-  <a href="https://github.com/weed33834/FinPilot"><img src="https://github-readme-stats.vercel.app/api/pin/?username=weed33834&repo=FinPilot&hide_border=true&bg_color=0B1026&title_color=C9A86A&text_color=F5E6C8" alt="FinPilot" /></a>
-</p>
-
-<p align="center">
-  <a href="https://github.com/weed33834/HumanValue"><img src="https://github-readme-stats.vercel.app/api/pin/?username=weed33834&repo=HumanValue&hide_border=true&bg_color=0B1026&title_color=C9A86A&text_color=F5E6C8" alt="HumanValue" /></a>
-  <a href="https://github.com/weed33834/DoctorAgent"><img src="https://github-readme-stats.vercel.app/api/pin/?username=weed33834&repo=DoctorAgent&hide_border=true&bg_color=0B1026&title_color=C9A86A&text_color=F5E6C8" alt="DoctorAgent" /></a>
-</p>
+- **[EduFlow](https://github.com/weed33834/EduFlow)** — AI-driven student self-learning platform. AI agents assist, students lead. (Next.js + FastAPI + LangGraph)
+- **[FinPilot](https://github.com/weed33834/FinPilot)** — Open-source AI virtual finance department: NL2SQL, financial modeling, RAG Q&A, multi-agent debate.
+- **[HumanValue](https://github.com/weed33834/HumanValue)** — AI talent value intelligence: 9-box / key-person / compensation / succession analytics.
+- **[DoctorAgent](https://github.com/weed33834/DoctorAgent)** — Self-hosted clinical AI agent with drug-interaction safety rules, FHIR R4, HIPAA-aware audit.
 
 ### 🤖 AI Agent & Framework
 
-<p align="center">
-  <a href="https://github.com/weed33834/AgentSeed"><img src="https://github-readme-stats.vercel.app/api/pin/?username=weed33834&repo=AgentSeed&hide_border=true&bg_color=0B1026&title_color=C9A86A&text_color=F5E6C8" alt="AgentSeed" /></a>
-  <a href="https://github.com/weed33834/agent-builder-skill"><img src="https://github-readme-stats.vercel.app/api/pin/?username=weed33834&repo=agent-builder-skill&hide_border=true&bg_color=0B1026&title_color=C9A86A&text_color=F5E6C8" alt="agent-builder-skill" /></a>
-</p>
-
-<p align="center">
-  <a href="https://github.com/weed33834/JustAgent"><img src="https://github-readme-stats.vercel.app/api/pin/?username=weed33834&repo=JustAgent&hide_border=true&bg_color=0B1026&title_color=C9A86A&text_color=F5E6C8" alt="JustAgent" /></a>
-  <a href="https://github.com/weed33834/deadman"><img src="https://github-readme-stats.vercel.app/api/pin/?username=weed33834&repo=deadman&hide_border=true&bg_color=0B1026&title_color=C9A86A&text_color=F5E6C8" alt="deadman" /></a>
-</p>
+- **[AgentSeed](https://github.com/weed33834/AgentSeed)** — Governance kernel for AI coding agents: safety rules + scenario packs, synced to 15 platforms.
+- **[agent-builder-skill](https://github.com/weed33834/agent-builder-skill)** — A skill that builds production-grade AI agents from a one-line requirement.
+- **[JustAgent](https://github.com/weed33834/JustAgent)** — Local-first intelligent delivery assistant & judicial AI agent platform.
+- **[deadman](https://github.com/weed33834/deadman)** — End-of-life & medical-navigation multi-agent AI platform.
 
 ### 🧭 AI Resource & Navigation
 
-<p align="center">
-  <a href="https://github.com/weed33834/OpenBox"><img src="https://github-readme-stats.vercel.app/api/pin/?username=weed33834&repo=OpenBox&hide_border=true&bg_color=0B1026&title_color=C9A86A&text_color=F5E6C8" alt="OpenBox" /></a>
-</p>
+- **[OpenBox](https://github.com/weed33834/OpenBox)** — Open-source AI resource hub: 13 categories, 270+ curated resources, community-verified.
 
 ### 🏫 Campus & Community
 
-<p align="center">
-  <a href="https://github.com/weed33834/campushub"><img src="https://github-readme-stats.vercel.app/api/pin/?username=weed33834&repo=campushub&hide_border=true&bg_color=0B1026&title_color=C9A86A&text_color=F5E6C8" alt="campushub" /></a>
-</p>
+- **[campushub](https://github.com/weed33834/campushub)** — Open-source campus & interest community (WeChat Mini Program + CloudBase).
 
 ### 🎨 Creative & Interactive
 
-<p align="center">
-  <a href="https://github.com/weed33834/compass"><img src="https://github-readme-stats.vercel.app/api/pin/?username=weed33834&repo=compass&hide_border=true&bg_color=0B1026&title_color=C9A86A&text_color=F5E6C8" alt="compass" /></a>
-  <a href="https://github.com/weed33834/Anime-Friends"><img src="https://github-readme-stats.vercel.app/api/pin/?username=weed33834&repo=Anime-Friends&hide_border=true&bg_color=0B1026&title_color=C9A86A&text_color=F5E6C8" alt="Anime-Friends" /></a>
-</p>
+- **[compass](https://github.com/weed33834/compass)** — Self-hosted spaced-repetition quiz tool powered by FSRS-6 (a modern Anki alternative).
+- **[Anime-Friends](https://github.com/weed33834/Anime-Friends)** — 88 anime characters × 12-dimension personality matching test.
 
 ### ✍️ Content & Automation
 
-<p align="center">
-  <a href="https://github.com/weed33834/cnblogs-skill"><img src="https://github-readme-stats.vercel.app/api/pin/?username=weed33834&repo=cnblogs-skill&hide_border=true&bg_color=0B1026&title_color=C9A86A&text_color=F5E6C8" alt="cnblogs-skill" /></a>
-  <a href="https://github.com/weed33834/zhihu-skill"><img src="https://github-readme-stats.vercel.app/api/pin/?username=weed33834&repo=zhihu-skill&hide_border=true&bg_color=0B1026&title_color=C9A86A&text_color=F5E6C8" alt="zhihu-skill" /></a>
-</p>
+- **[cnblogs-skill](https://github.com/weed33834/cnblogs-skill)** — Full automation skill for cnblogs.com.
+- **[zhihu-skill](https://github.com/weed33834/zhihu-skill)** — Zhihu publishing management tool: AI framework reviews & dev guides.
 
 ### 🌍 Life & Commerce
 
-<p align="center">
-  <a href="https://github.com/weed33834/Traveler"><img src="https://github-readme-stats.vercel.app/api/pin/?username=weed33834&repo=Traveler&hide_border=true&bg_color=0B1026&title_color=C9A86A&text_color=F5E6C8" alt="Traveler" /></a>
-  <a href="https://github.com/weed33834/KeBaiPay"><img src="https://github-readme-stats.vercel.app/api/pin/?username=weed33834&repo=KeBaiPay&hide_border=true&bg_color=0B1026&title_color=C9A86A&text_color=F5E6C8" alt="KeBaiPay" /></a>
-</p>
+- **[Traveler](https://github.com/weed33834/Traveler)** — AI + cultural tourism unified agent platform (C-end + B-end + G-end).
+- **[KeBaiPay](https://github.com/weed33834/KeBaiPay)** — Wallet + merchant collection + open API + reconciliation aggregation.
 
 ### 🔀 Notable Forks
 
-<p align="center">
-  <a href="https://github.com/weed33834/ai-api-gongyi-nav"><img src="https://github-readme-stats.vercel.app/api/pin/?username=weed33834&repo=ai-api-gongyi-nav&hide_border=true&bg_color=0B1026&title_color=C9A86A&text_color=F5E6C8" alt="ai-api-gongyi-nav" /></a>
-  <a href="https://github.com/weed33834/WorldFoundry"><img src="https://github-readme-stats.vercel.app/api/pin/?username=weed33834&repo=WorldFoundry&hide_border=true&bg_color=0B1026&title_color=C9A86A&text_color=F5E6C8" alt="WorldFoundry" /></a>
-</p>
+- **[ai-api-gongyi-nav](https://github.com/weed33834/ai-api-gongyi-nav)** — Free AI API hub: GPT / Claude / Codex / DeepSeek.
+- **[WorldFoundry](https://github.com/weed33834/WorldFoundry)** — Unified World Model inference & evaluation infrastructure.
 
 ## Open Source Radar
 
@@ -158,12 +111,6 @@ A developer who turns abstract ideas into tangible interfaces. Focused on full-s
   <a href="https://github.com/anthropics/claude-code"><img src="https://img.shields.io/badge/Claude_Code-D97757?style=flat&logo=anthropic&logoColor=white&labelColor=0B1026" alt="Claude Code" /></a>
 </p>
 
-## Quote of the Day
-
-<p align="center">
-  <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=dark&bg_color=0B1026&border=false" alt="Dev Quote" width="98%" />
-</p>
-
 ## Elsewhere
 
 <p align="center">
@@ -171,10 +118,6 @@ A developer who turns abstract ideas into tangible interfaces. Focused on full-s
   <a href="https://gitcode.com/badhope"><img src="https://img.shields.io/badge/GitCode-badhope-C9A86A?style=flat&logo=git&logoColor=white&labelColor=0B1026" alt="GitCode" /></a>
   <a href="https://gitee.com/badhope"><img src="https://img.shields.io/badge/Gitee-badhope-C9A86A?style=flat&logo=git&logoColor=white&labelColor=0B1026" alt="Gitee" /></a>
   <a href="https://blog.csdn.net/weixin_56622231"><img src="https://img.shields.io/badge/CSDN-Blog-C9A86A?style=flat&logo=bytes&logoColor=white&labelColor=0B1026" alt="CSDN Blog" /></a>
-</p>
-
-<p align="center">
-  <img src="https://komarev.com/ghpvc/?username=weed33834&color=C9A86A&style=flat&label=Visitors" alt="Visitor Count" />
 </p>
 
 <p align="center">
