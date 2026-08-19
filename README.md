@@ -18,6 +18,12 @@ A developer who turns abstract ideas into tangible interfaces. Focused on full-s
 - **Go-to languages**: TypeScript / Python / Rust
 - **Motto**: rather than better, different
 
+## Stats
+
+<!-- STATS:START -->
+- ⭐ **163** stars · 👥 **10** followers · 📦 **61** repositories
+<!-- STATS:END -->
+
 ## Contribution Graph
 
 <p align="center">
@@ -46,47 +52,20 @@ A developer who turns abstract ideas into tangible interfaces. Focused on full-s
 
 ## Projects
 
-### 🎓 AI & Education
+<!-- PROJECTS:START -->
+- ⭐ **[EduFlow](https://github.com/weed33834/EduFlow)** · 36★ · Python
+- ⭐ **[AgentSeed](https://github.com/weed33834/AgentSeed)** · 18★ · Python
+- ⭐ **[FinPilot](https://github.com/weed33834/FinPilot)** · 12★ · Python
+- ⭐ **[campushub](https://github.com/weed33834/campushub)** · 7★ · JavaScript
+- ⭐ **[HumanValue](https://github.com/weed33834/HumanValue)** · 6★ · Python
+- ⭐ **[OpenBox](https://github.com/weed33834/OpenBox)** · 4★ · TypeScript
+<!-- PROJECTS:END -->
 
-- **[EduFlow](https://github.com/weed33834/EduFlow)** — AI-driven student self-learning platform. AI agents assist, students lead. (Next.js + FastAPI + LangGraph)
-- **[FinPilot](https://github.com/weed33834/FinPilot)** — Open-source AI virtual finance department: NL2SQL, financial modeling, RAG Q&A, multi-agent debate.
-- **[HumanValue](https://github.com/weed33834/HumanValue)** — AI talent value intelligence: 9-box / key-person / compensation / succession analytics.
-- **[DoctorAgent](https://github.com/weed33834/DoctorAgent)** — Self-hosted clinical AI agent with drug-interaction safety rules, FHIR R4, HIPAA-aware audit.
+## Blog
 
-### 🤖 AI Agent & Framework
-
-- **[AgentSeed](https://github.com/weed33834/AgentSeed)** — Governance kernel for AI coding agents: safety rules + scenario packs, synced to 15 platforms.
-- **[agent-builder-skill](https://github.com/weed33834/agent-builder-skill)** — A skill that builds production-grade AI agents from a one-line requirement.
-- **[JustAgent](https://github.com/weed33834/JustAgent)** — Local-first intelligent delivery assistant & judicial AI agent platform.
-- **[deadman](https://github.com/weed33834/deadman)** — End-of-life & medical-navigation multi-agent AI platform.
-
-### 🧭 AI Resource & Navigation
-
-- **[OpenBox](https://github.com/weed33834/OpenBox)** — Open-source AI resource hub: 13 categories, 270+ curated resources, community-verified.
-
-### 🏫 Campus & Community
-
-- **[campushub](https://github.com/weed33834/campushub)** — Open-source campus & interest community (WeChat Mini Program + CloudBase).
-
-### 🎨 Creative & Interactive
-
-- **[compass](https://github.com/weed33834/compass)** — Self-hosted spaced-repetition quiz tool powered by FSRS-6 (a modern Anki alternative).
-- **[Anime-Friends](https://github.com/weed33834/Anime-Friends)** — 88 anime characters × 12-dimension personality matching test.
-
-### ✍️ Content & Automation
-
-- **[cnblogs-skill](https://github.com/weed33834/cnblogs-skill)** — Full automation skill for cnblogs.com.
-- **[zhihu-skill](https://github.com/weed33834/zhihu-skill)** — Zhihu publishing management tool: AI framework reviews & dev guides.
-
-### 🌍 Life & Commerce
-
-- **[Traveler](https://github.com/weed33834/Traveler)** — AI + cultural tourism unified agent platform (C-end + B-end + G-end).
-- **[KeBaiPay](https://github.com/weed33834/KeBaiPay)** — Wallet + merchant collection + open API + reconciliation aggregation.
-
-### 🔀 Notable Forks
-
-- **[ai-api-gongyi-nav](https://github.com/weed33834/ai-api-gongyi-nav)** — Free AI API hub: GPT / Claude / Codex / DeepSeek.
-- **[WorldFoundry](https://github.com/weed33834/WorldFoundry)** — Unified World Model inference & evaluation infrastructure.
+<!-- BLOG:START -->
+- _Syncing latest posts…_
+<!-- BLOG:END -->
 
 ## Open Source Radar
 
