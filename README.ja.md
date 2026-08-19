@@ -18,6 +18,12 @@ badhope / weed33834
 - **よく使う言語**：TypeScript / Python / Rust
 - **座右の銘**：より良くあるより、違ってあれ
 
+## 統計
+
+<!-- STATS:START -->
+- ⭐ **163** stars · 👥 **10** followers · 📦 **61** repositories
+<!-- STATS:END -->
+
 ## コントリビューション
 
 <p align="center">
@@ -46,47 +52,20 @@ badhope / weed33834
 
 ## プロジェクト
 
-### 🎓 AI と教育
+<!-- PROJECTS:START -->
+- ⭐ **[EduFlow](https://github.com/weed33834/EduFlow)** · 36★ · Python
+- ⭐ **[AgentSeed](https://github.com/weed33834/AgentSeed)** · 18★ · Python
+- ⭐ **[FinPilot](https://github.com/weed33834/FinPilot)** · 12★ · Python
+- ⭐ **[campushub](https://github.com/weed33834/campushub)** · 7★ · JavaScript
+- ⭐ **[HumanValue](https://github.com/weed33834/HumanValue)** · 6★ · Python
+- ⭐ **[OpenBox](https://github.com/weed33834/OpenBox)** · 4★ · TypeScript
+<!-- PROJECTS:END -->
 
-- **[EduFlow](https://github.com/weed33834/EduFlow)** — AI駆動の学生自主学習プラットフォーム。AI が支援し、学生が主導する。（Next.js + FastAPI + LangGraph）
-- **[FinPilot](https://github.com/weed33834/FinPilot)** — オープンソースの AI 仮想財務部：NL2SQL・財務モデリング・RAG Q&A・マルチエージェント議論。
-- **[HumanValue](https://github.com/weed33834/HumanValue)** — AI 人材価値インテリジェンス：9ボックス／キーパーソン／報酬／後継者分析。
-- **[DoctorAgent](https://github.com/weed33834/DoctorAgent)** — セルフホスト型臨床 AI エージェント：薬物相互作用ルール、FHIR R4、HIPAA 準拠監査。
+## ブログ
 
-### 🤖 AI Agent とフレームワーク
-
-- **[AgentSeed](https://github.com/weed33834/AgentSeed)** — AI コーディングエージェントのガバナンス基盤：安全ルール＋シナリオパック、15 プラットフォーム対応。
-- **[agent-builder-skill](https://github.com/weed33834/agent-builder-skill)** — 1 行の要件から本番級 AI エージェントを構築するスキル。
-- **[JustAgent](https://github.com/weed33834/JustAgent)** — ローカルファーストの知的配送アシスタント＆司法 AI エージェントプラットフォーム。
-- **[deadman](https://github.com/weed33834/deadman)** — 終末期・医療ナビゲーションのマルチエージェント AI プラットフォーム。
-
-### 🧭 AI リソースとナビゲーション
-
-- **[OpenBox](https://github.com/weed33834/OpenBox)** — オープンソース AI リソースハブ：13 カテゴリ・270+ の厳選リソース、コミュニティ検証。
-
-### 🏫 キャンパスとコミュニティ
-
-- **[campushub](https://github.com/weed33834/campushub)** — オープンソースのキャンパス＆コミュニティ（WeChat ミニプログラム + CloudBase）。
-
-### 🎨 クリエイティブとインタラクティブ
-
-- **[compass](https://github.com/weed33834/compass)** — FSRS-6 採用のセルフホスト間隔反復クイズツール（現代的な Anki 代替）。
-- **[Anime-Friends](https://github.com/weed33834/Anime-Friends)** — 88 人のアニメキャラ × 12 次元の性格マッチングテスト。
-
-### ✍️ コンテンツと自動化
-
-- **[cnblogs-skill](https://github.com/weed33834/cnblogs-skill)** — cnblogs.com 全自動管理スキル。
-- **[zhihu-skill](https://github.com/weed33834/zhihu-skill)** — 知乎（Zhihu）投稿管理ツール：AI フレームワークレビュー・開発ガイド。
-
-### 🌍 ライフとビジネス
-
-- **[Traveler](https://github.com/weed33834/Traveler)** — AI×文化観光の統合エージェントプラットフォーム（C 端 + B 端 + G 端）。
-- **[KeBaiPay](https://github.com/weed33834/KeBaiPay)** — ウォレット＋加盟店決済＋オープン API＋照合集約。
-
-### 🔀 注目の Fork
-
-- **[ai-api-gongyi-nav](https://github.com/weed33834/ai-api-gongyi-nav)** — 無料 AI API ハブ：GPT / Claude / Codex / DeepSeek。
-- **[WorldFoundry](https://github.com/weed33834/WorldFoundry)** — 統合ワールドモデル推論・評価基盤。
+<!-- BLOG:START -->
+- _Syncing latest posts…_
+<!-- BLOG:END -->
 
 ## オープンソースレーダー
 
