@@ -21,7 +21,7 @@ badhope / weed33834
 ## 統計
 
 <!-- STATS:START -->
-- ⭐ **163** stars · 👥 **10** followers · 📦 **61** repositories
+- ⭐ **163** stars &nbsp;·&nbsp; 👥 **10** followers &nbsp;·&nbsp; 📦 **61** repositories
 <!-- STATS:END -->
 
 ## コントリビューション
@@ -64,7 +64,11 @@ badhope / weed33834
 ## ブログ
 
 <!-- BLOG:START -->
-- _Syncing latest posts…_
+- [AI Agent 可观测性：破解多步推理黑盒](https://blog.csdn.net/weixin_56622231/article/details/163834054) · `2026-08-18`
+- [DeepSeek本地化部署完全指南：从云端到本地，一场关于数据主权的技术长征](https://blog.csdn.net/weixin_56622231/article/details/163834002) · `2026-08-17`
+- [Kimi K3 深度测评：长文本之外的真实力](https://blog.csdn.net/weixin_56622231/article/details/163833915) · `2026-08-17`
+- [闪电贷深度解析：从原子交易、多协议中转到攻击防御全景](https://blog.csdn.net/weixin_56622231/article/details/163833926) · `2026-08-17`
+- [Rust 开发深度指南：从新手到卓越工程师的完整修炼之路](https://blog.csdn.net/weixin_56622231/article/details/163804469) · `2026-08-17`
 <!-- BLOG:END -->
 
 ## オープンソースレーダー
