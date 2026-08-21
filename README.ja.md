@@ -21,7 +21,7 @@ badhope / weed33834
 ## 統計
 
 <!-- STATS:START -->
-- ⭐ **162** stars &nbsp;·&nbsp; 👥 **10** followers &nbsp;·&nbsp; 📦 **61** repositories
+- ⭐ **160** stars &nbsp;·&nbsp; 👥 **10** followers &nbsp;·&nbsp; 📦 **61** repositories
 <!-- STATS:END -->
 
 ## コントリビューション
@@ -54,9 +54,9 @@ badhope / weed33834
 
 <!-- PROJECTS:START -->
 - ⭐ **[EduFlow](https://github.com/weed33834/EduFlow)** · 36★ · Python
-- ⭐ **[AgentSeed](https://github.com/weed33834/AgentSeed)** · 19★ · Python
+- ⭐ **[AgentSeed](https://github.com/weed33834/AgentSeed)** · 18★ · Python
 - ⭐ **[FinPilot](https://github.com/weed33834/FinPilot)** · 12★ · Python
-- ⭐ **[campushub](https://github.com/weed33834/campushub)** · 7★ · JavaScript
+- ⭐ **[campushub](https://github.com/weed33834/campushub)** · 6★ · JavaScript
 - ⭐ **[HumanValue](https://github.com/weed33834/HumanValue)** · 6★ · Python
 - ⭐ **[OpenBox](https://github.com/weed33834/OpenBox)** · 4★ · TypeScript
 <!-- PROJECTS:END -->
@@ -64,11 +64,11 @@ badhope / weed33834
 ## ブログ
 
 <!-- BLOG:START -->
+- [AI 大模型开发工程师：从职业图景到底层原理的完整解析](https://blog.csdn.net/weixin_56622231/article/details/163909539) · `2026-08-20`
 - [Codex 官网前端可「抄」吗？从技术解剖到合法借鉴的完整实战](https://blog.csdn.net/weixin_56622231/article/details/163896277) · `2026-08-20`
 - [计算机专业学习权威平台全景图谱：GitHub 与每一个方向都绕不开的核心资源](https://blog.csdn.net/weixin_56622231/article/details/163896203) · `2026-08-19`
 - [为什么小参数模型能打败大模型？从数据、架构、训练到推理的全面深度剖析](https://blog.csdn.net/weixin_56622231/article/details/163896120) · `2026-08-19`
 - [从零打造四足机器人：一个工程师的完整手记](https://blog.csdn.net/weixin_56622231/article/details/163895978) · `2026-08-19`
-- [AI 发展全景 2026：能力边疆、落地版图与未解难题](https://blog.csdn.net/weixin_56622231/article/details/163895504) · `2026-08-19`
 <!-- BLOG:END -->
 
 ## オープンソースレーダー
