@@ -21,7 +21,7 @@ badhope / weed33834
 ## 统计
 
 <!-- STATS:START -->
-- ⭐ **160** stars &nbsp;·&nbsp; 👥 **10** followers &nbsp;·&nbsp; 📦 **61** repositories
+- ⭐ **164** stars &nbsp;·&nbsp; 👥 **10** followers &nbsp;·&nbsp; 📦 **62** repositories
 <!-- STATS:END -->
 
 ## 贡献热力图
@@ -53,12 +53,12 @@ badhope / weed33834
 ## 项目
 
 <!-- PROJECTS:START -->
-- ⭐ **[EduFlow](https://github.com/weed33834/EduFlow)** · 36★ · Python
-- ⭐ **[AgentSeed](https://github.com/weed33834/AgentSeed)** · 18★ · Python
+- ⭐ **[EduAgent](https://github.com/weed33834/EduAgent)** · 36★ · Python
+- ⭐ **[AgentSeed](https://github.com/weed33834/AgentSeed)** · 20★ · Python
 - ⭐ **[FinPilot](https://github.com/weed33834/FinPilot)** · 12★ · Python
 - ⭐ **[campushub](https://github.com/weed33834/campushub)** · 6★ · JavaScript
 - ⭐ **[HumanValue](https://github.com/weed33834/HumanValue)** · 6★ · Python
-- ⭐ **[OpenBox](https://github.com/weed33834/OpenBox)** · 4★ · TypeScript
+- ⭐ **[OpenBox](https://github.com/weed33834/OpenBox)** · 5★ · TypeScript
 <!-- PROJECTS:END -->
 
 ## 博客
